@@ -1,7 +1,8 @@
-@use 'src/scss/variables' as v;
+@use '../../scss/variables' as v;
 
 .header {
   height: 100px;
+  border-bottom: 1px solid v.$white10;
 
   &__container {
     display: flex;

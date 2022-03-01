@@ -1,4 +1,4 @@
-@use 'src/scss/variables' as v;
+@use '../../scss/variables' as v;
 
 .search {
   position: relative;
@@ -11,6 +11,7 @@
     padding-left: 15px;
     border-radius: 10px;
     border: none;
+    outline: none;
     background-color: v.$search-color;
     font-family: Gilroy;
     font-style: normal;

@@ -1,6 +1,6 @@
 @use '~normalize-scss/sass/normalize';
 
-@use 'src/scss/variables' as v;
+@use './scss/variables' as v;
 
 @font-face {
   font-family: 'Gilroy';
@@ -59,9 +59,6 @@ body {
   background-color: v.$bg-color;
 }
 
-a,
-input,
-button {
+a {
   text-decoration: none;
-  outline: none;
 }

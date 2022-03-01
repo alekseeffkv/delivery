@@ -1,4 +1,4 @@
-@use 'src/scss/variables' as v;
+@use '../../scss/variables' as v;
 
 .cart-button {
   display: flex;
@@ -14,7 +14,7 @@
     align-items: center;
     width: 100px;
     height: 36px;
-    border-right: 1px solid v.$gray;
+    border-right: 1px solid v.$white30;
     font-family: Gilroy;
     font-style: normal;
     font-weight: 600;
