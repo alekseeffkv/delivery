@@ -1,0 +1,67 @@
+@use '~normalize-scss/sass/normalize';
+
+@use 'src/scss/variables' as v;
+
+@font-face {
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: 300;
+  src: url('fonts/gilroy-light.woff2') format('woff2'),
+    url('fonts/gilroy-light.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: 400;
+  src: url('fonts/gilroy-regular.woff2') format('woff2'),
+    url('fonts/gilroy-regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: 500;
+  src: url('fonts/gilroy-medium.woff2') format('woff2'),
+    url('fonts/gilroy-medium.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: 600;
+  src: url('fonts/gilroy-semibold.woff2') format('woff2'),
+    url('fonts/gilroy-semibold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: 700;
+  src: url('fonts/gilroy-bold.woff2') format('woff2'), url('fonts/gilroy-bold.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'Gilroy';
+  font-style: normal;
+  font-weight: 800;
+  src: url('fonts/gilroy-extrabold.woff2') format('woff2'),
+    url('fonts/gilroy-extrabold.woff') format('woff');
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: v.$bg-color;
+}
+
+a,
+input,
+button {
+  text-decoration: none;
+  outline: none;
+}
