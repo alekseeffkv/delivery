@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom';
 import './header.scss';
 
 import Search from '../search';
-import CartButton from '../cart/cart-button';
+import CartButton from '../cart-button';
 
 import { ReactComponent as PhoneIcon } from '../../icons/phone.svg';
 
