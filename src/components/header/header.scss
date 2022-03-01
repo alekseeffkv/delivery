@@ -1,0 +1,62 @@
+@use 'src/scss/variables' as v;
+
+.header {
+  height: 100px;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    max-width: v.$container-width;
+    height: 100%;
+  }
+
+  &__logo {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 100%;
+    letter-spacing: 0.15em;
+    color: v.$white;
+  }
+
+  &__contacts {
+    width: 170px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    svg {
+      width: 32px;
+      height: 32px;
+      color: v.$green;
+    }
+  }
+
+  &__contacts-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  &__contacts-title {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 167%;
+    color: v.$gray;
+  }
+
+  &__contacts-number {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 125%;
+    color: v.$white;
+  }
+}
