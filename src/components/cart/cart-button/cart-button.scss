@@ -1,0 +1,51 @@
+@use 'src/scss/variables' as v;
+
+.cart-button {
+  display: flex;
+  align-items: center;
+  width: 150px;
+  height: 50px;
+  background-color: v.$green;
+  border-radius: 10px;
+
+  &__title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100px;
+    height: 36px;
+    border-right: 1px solid v.$gray;
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 17px;
+    color: v.$white;
+  }
+
+  &__counter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 49px;
+  }
+
+  &__circle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    background-color: v.$white;
+  }
+
+  &__amount {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 12px;
+    line-height: 15px;
+    color: v.$black;
+  }
+}
