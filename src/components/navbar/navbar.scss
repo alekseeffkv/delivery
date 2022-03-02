@@ -1,6 +1,10 @@
 @use '../../scss/variables' as v;
 
 .navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: v.$bg-color;
   border-bottom: 1px solid v.$white10;
 
   &__inner {
@@ -8,7 +12,7 @@
     justify-content: space-between;
     align-items: center;
     max-width: v.$container-width;
-    height: 80px;
+    height: 73px;
     margin: 0 auto;
   }
 }

@@ -10,7 +10,7 @@ function NavItem({ id, name }) {
         to={id}
         spy={true}
         smooth={true}
-        offset={-70}
+        offset={-120}
         duration={500}
       >
         {name}
