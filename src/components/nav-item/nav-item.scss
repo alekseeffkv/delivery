@@ -1,0 +1,25 @@
+@use '../../scss/variables' as v;
+
+.nav-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+
+  &__link {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 22px;
+    color: v.$gray;
+    cursor: pointer;
+
+    &_active {
+      font-weight: 500;
+      color: v.$white;
+      border-bottom: 3px solid v.$dark-green;
+      box-shadow: 0px 5px 12px v.$shadow-color;
+    }
+  }
+}
