@@ -5,9 +5,11 @@ import './navbar.scss';
 function Navbar({ categories }) {
   return (
     <nav className="navbar">
-      {categories.map((category) => (
-        <NavItem key={category.id} id={category.id} name={category.name} />
-      ))}
+      <div className="navbar__inner">
+        {categories.map((category) => (
+          <NavItem key={category.id} id={category.id} name={category.name} />
+        ))}
+      </div>
     </nav>
   );
 }

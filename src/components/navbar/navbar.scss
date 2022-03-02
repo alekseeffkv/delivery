@@ -1,11 +1,14 @@
 @use '../../scss/variables' as v;
 
 .navbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: v.$container-width;
-  height: 80px;
-  margin: 0 auto;
   border-bottom: 1px solid v.$white10;
+
+  &__inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: v.$container-width;
+    height: 80px;
+    margin: 0 auto;
+  }
 }

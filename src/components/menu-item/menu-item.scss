@@ -1,0 +1,25 @@
+@use '../../scss/variables' as v;
+
+.menu-item {
+  height: 575px;
+  border-bottom: 1px solid v.$white10;
+
+  &__title {
+    width: v.$container-width;
+    height: 33px;
+    margin: 0 auto;
+  }
+
+  &__title-inner {
+    margin-left: 10px;
+    margin-top: 52px;
+    border-left: 4px solid v.$dark-green;
+    padding-left: 20px;
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 21px;
+    line-height: 33px;
+    color: v.$white;
+  }
+}
