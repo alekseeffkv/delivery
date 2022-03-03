@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "classnames": "^2.3.1",
     "connected-react-router": "^6.9.2",
     "immer": "^9.0.12",
     "normalize-scss": "^7.0.1",

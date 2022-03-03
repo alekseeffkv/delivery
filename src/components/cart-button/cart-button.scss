@@ -48,4 +48,15 @@
     line-height: 15px;
     color: v.$black;
   }
+
+  &-enter,
+  &-appear {
+    opacity: 0;
+  }
+
+  &-enter-active,
+  &-appear-active {
+    opacity: 1;
+    transition: opacity 500ms linear;
+  }
 }

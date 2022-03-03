@@ -5,10 +5,10 @@ import mobileBanner from './mobile-hero.png';
 const Banner = () => {
   return (
     <div className="banner">
-      <picture>
+      <picture className="banner__picture">
         <source media="(max-width: 480px)" srcSet={mobileBanner} />
         <source media="(min-width: 481px)" srcSet={banner} />
-        <img src={banner} alt="banner" className="banner__image" />
+        <img src={banner} className="banner__image" alt="banner" />
       </picture>
     </div>
   );
