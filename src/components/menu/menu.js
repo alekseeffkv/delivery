@@ -1,7 +1,6 @@
-import { connect } from 'react-redux';
 import MenuItem from '../menu-item';
 
-function Menu({ categories }) {
+export default function Menu({ categories }) {
   return (
     <main>
       {categories.map((category) => (
@@ -10,9 +9,3 @@ function Menu({ categories }) {
     </main>
   );
 }
-
-const mapStateToProps = (state) => ({
-  categories: state.categories,
-});
-
-export default connect(mapStateToProps)(Menu);
