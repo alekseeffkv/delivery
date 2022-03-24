@@ -5,6 +5,7 @@ import Header from '../header';
 import Banner from '../banner';
 import Navbar from '../navbar';
 import Menu from '../menu';
+import Loader from '../loader';
 
 import {
   categoriesListSelector,
@@ -13,10 +14,13 @@ import {
 } from '../../redux/selectors';
 import { loadCategories } from '../../redux/actions';
 
-function App({ categories, loading, loaded, loadCategories }) {
+const App = ({ categories, loading, loaded, loadCategories }) => {
   useEffect(() => {
     if (!loading && !loaded) loadCategories();
   }, [loading, loaded, loadCategories]);
+
+  if (loading) return <Loader />;
+  if (!loaded) return 'No data';
 
   return (
     <div>
@@ -26,7 +30,7 @@ function App({ categories, loading, loaded, loadCategories }) {
       <Menu categories={categories} />
     </div>
   );
-}
+};
 
 const mapStateToProps = (state) => ({
   categories: categoriesListSelector(state),

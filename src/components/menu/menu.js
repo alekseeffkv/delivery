@@ -1,6 +1,6 @@
 import MenuItem from '../menu-item';
 
-export default function Menu({ categories }) {
+const Menu = ({ categories }) => {
   return (
     <main>
       {categories.map((category) => (
@@ -8,4 +8,6 @@ export default function Menu({ categories }) {
       ))}
     </main>
   );
-}
+};
+
+export default Menu;

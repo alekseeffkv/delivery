@@ -1,6 +1,6 @@
 import './menu-item.scss';
 
-function MenuItem({ id, name }) {
+const MenuItem = ({ id, name }) => {
   return (
     <section id={id} className="menu-item">
       <div className="menu-item__title">
@@ -10,6 +10,6 @@ function MenuItem({ id, name }) {
       </div>
     </section>
   );
-}
+};
 
 export default MenuItem;

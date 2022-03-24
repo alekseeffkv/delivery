@@ -1,7 +1,7 @@
 import { Link } from 'react-scroll';
 import './nav-item.scss';
 
-function NavItem({ id, name }) {
+const NavItem = ({ id, name }) => {
   return (
     <div className="nav-item">
       <Link
@@ -17,6 +17,6 @@ function NavItem({ id, name }) {
       </Link>
     </div>
   );
-}
+};
 
 export default NavItem;
