@@ -1,3 +1,6 @@
+import { connect } from 'react-redux';
+import { productSelector } from '../../redux/selectors';
+
 import './product-card.scss';
 import Button from '../button';
 import { numberSpace } from '../../utils';
@@ -23,4 +26,8 @@ const ProductCard = ({ product }) => {
   );
 };
 
-export default ProductCard;
+const mapStateToProps = (state, props) => ({
+  product: productSelector(state, props),
+});
+
+export default connect(mapStateToProps)(ProductCard);

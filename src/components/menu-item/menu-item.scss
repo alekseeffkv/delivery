@@ -1,12 +1,15 @@
 @use '../../scss/variables' as v;
 
 .menu-item {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
   height: 575px;
   border-bottom: 1px solid v.$white10;
 
   &__title {
     width: v.$container-width;
-    height: 33px;
     margin: 0 auto;
   }
 
@@ -21,5 +24,11 @@
     font-size: 21px;
     line-height: 33px;
     color: v.$white;
+  }
+
+  &__body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
