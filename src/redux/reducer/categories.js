@@ -1,5 +1,5 @@
 import { LOAD_CATEGORIES, REQUEST, SUCCESS, FAILURE } from '../constants';
-import { arrToMap } from '../utils';
+import { arrToMap } from '../../utils';
 
 const initialState = {
   entities: {},
