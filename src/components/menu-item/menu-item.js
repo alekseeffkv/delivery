@@ -1,7 +1,25 @@
+import Slider from 'react-slick';
 import './menu-item.scss';
 import ProductCard from '../product-card';
 
 const MenuItem = ({ category }) => {
+  const sliderSettings = {
+    infinite: false,
+    speed: 1000,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    className: 'menu-item__slider',
+    responsive: [
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   return (
     <section id={category.id} className="menu-item">
       <div className="menu-item__title">
@@ -9,11 +27,11 @@ const MenuItem = ({ category }) => {
           <h2>{category.name.toUpperCase()}</h2>
         </div>
       </div>
-      <div className="menu-item__body">
+      <Slider {...sliderSettings}>
         {category.dishes.map((id) => (
           <ProductCard key={id} id={id} />
         ))}
-      </div>
+      </Slider>
     </section>
   );
 };

@@ -10,8 +10,8 @@ const NavItem = ({ id, name }) => {
         to={id}
         spy={true}
         smooth={true}
-        offset={-120}
-        duration={500}
+        offset={-50}
+        duration={1000}
       >
         {name}
       </Link>
