@@ -6,6 +6,7 @@ import Banner from '../banner';
 import Navbar from '../navbar';
 import Menu from '../menu';
 import Loader from '../loader';
+import Contacts from '../contacts';
 
 import {
   categoriesListSelector,
@@ -28,6 +29,7 @@ const App = ({ categories, loading, loaded, loadCategories }) => {
       <Banner />
       <Navbar categories={categories} />
       <Menu categories={categories} />
+      <Contacts />
     </div>
   );
 };

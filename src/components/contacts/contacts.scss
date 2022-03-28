@@ -1,0 +1,188 @@
+@use '../../scss/variables' as v;
+
+.contacts {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  max-width: v.$container-width;
+  height: 610px;
+  margin: 0 auto;
+  padding-left: 70px;
+  background-image: url(./contacts.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 525px;
+    height: 405px;
+    padding: 25px 45px;
+    background-color: v.$black;
+    border-radius: 15px;
+    box-shadow: 0px 0px 70px rgba(0, 0, 0, 0.15);
+  }
+
+  &__title {
+    align-self: flex-start;
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 37px;
+    color: v.$white;
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 170px;
+    padding: 20px 0;
+    border-top: 1px solid v.$white10;
+    border-bottom: 1px solid v.$white10;
+
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    path,
+    circle {
+      stroke: v.$icon-green;
+    }
+  }
+
+  &__address {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    svg {
+      margin: 0 5px;
+    }
+  }
+
+  &__address-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 70px;
+    padding-left: 10px;
+  }
+
+  &__address-title {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: v.$gray;
+  }
+
+  &__address-street {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: v.$white;
+  }
+
+  &__mail {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+  }
+
+  &__mail-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 45px;
+    padding-left: 10px;
+  }
+
+  &__mail-title {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: v.$gray;
+  }
+
+  &__mail-address {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: v.$white;
+  }
+
+  &__reservation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  &__phone {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__number {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 23px;
+    line-height: 28px;
+    color: v.$white;
+  }
+
+  &__description {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 16px;
+    color: v.$gray;
+  }
+
+  &__social {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 185px;
+  }
+
+  &__social-title {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: v.$white;
+  }
+
+  &__social-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 50px;
+
+    svg {
+      width: 19px;
+      height: 19px;
+    }
+  }
+}
