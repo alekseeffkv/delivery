@@ -1,46 +1,39 @@
 import './navbar.scss';
 
-import { Component } from 'react';
+import { useState, useEffect } from 'react';
+import { CSSTransition } from 'react-transition-group';
 
 import NavItem from '../nav-item';
 import CartButton from '../cart-button';
 
-export default class Navbar extends Component {
-  constructor(props) {
-    super(props);
+const Navbar = ({ categories }) => {
+  const [navbarCart, setNavbarCart] = useState(false);
 
-    this.state = {
-      navbarCart: false,
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentNavbarCart = window.pageYOffset > 100;
+      setNavbarCart(currentNavbarCart);
     };
-  }
 
-  componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll);
-  }
+    window.addEventListener('scroll', handleScroll);
 
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll);
-  }
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-  handleScroll = () => {
-    const navbarCart = window.pageYOffset > 100;
-    this.setState({
-      navbarCart,
-    });
-  };
+  return (
+    <nav className="navbar">
+      <div className="navbar__inner">
+        {categories.map((category) => (
+          <NavItem key={category.id} id={category.id} name={category.name} />
+        ))}
+        {navbarCart && (
+          <CSSTransition in={true} appear timeout={500} classNames="cart-button">
+            <CartButton />
+          </CSSTransition>
+        )}
+      </div>
+    </nav>
+  );
+};
 
-  render() {
-    const { categories } = this.props;
-
-    return (
-      <nav className="navbar">
-        <div className="navbar__inner">
-          {categories.map((category) => (
-            <NavItem key={category.id} id={category.id} name={category.name} />
-          ))}
-          {this.state.navbarCart && <CartButton />}
-        </div>
-      </nav>
-    );
-  }
-}
+export default Navbar;
