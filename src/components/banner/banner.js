@@ -1,7 +1,7 @@
 import './banner.scss';
 
-import banner from './hero.png';
-import mobileBanner from './mobile-hero.png';
+import banner from './hero.jpg';
+import mobileBanner from './mobile-hero.jpg';
 
 const Banner = () => {
   return (
