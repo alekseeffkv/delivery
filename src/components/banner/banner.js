@@ -1,4 +1,5 @@
 import './banner.scss';
+
 import banner from './hero.png';
 import mobileBanner from './mobile-hero.png';
 

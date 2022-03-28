@@ -1,5 +1,6 @@
-import cn from 'classnames';
 import './button.scss';
+
+import cn from 'classnames';
 
 import { ReactComponent as PlusIcon } from '../../icons/plus.svg';
 import { ReactComponent as MinusIcon } from '../../icons/minus.svg';

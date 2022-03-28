@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
-import { loadProducts } from '../../redux/actions';
-import { productsLoadingSelector, productsLoadedSelector } from '../../redux/selectors';
 
 import MenuItem from '../menu-item';
 import Loader from '../loader';
+
+import { productsLoadingSelector, productsLoadedSelector } from '../../redux/selectors';
+import { loadProducts } from '../../redux/actions';
 
 const Menu = ({ categories, loading, loaded, loadProducts }) => {
   useEffect(() => {

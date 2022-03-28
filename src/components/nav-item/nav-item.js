@@ -1,5 +1,6 @@
-import { Link } from 'react-scroll';
 import './nav-item.scss';
+
+import { Link } from 'react-scroll';
 
 const NavItem = ({ id, name }) => {
   return (

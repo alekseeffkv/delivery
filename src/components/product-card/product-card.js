@@ -1,9 +1,11 @@
-import { connect } from 'react-redux';
-import { productSelector } from '../../redux/selectors';
-
 import './product-card.scss';
-import Button from '../button';
+
+import { connect } from 'react-redux';
 import { numberSpace } from '../../utils';
+
+import Button from '../button';
+
+import { productSelector } from '../../redux/selectors';
 
 const ProductCard = ({ product }) => {
   return (

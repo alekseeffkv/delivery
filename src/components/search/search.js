@@ -1,4 +1,5 @@
 import './search.scss';
+
 import { ReactComponent as SearchIcon } from '../../icons/search.svg';
 
 const Search = () => {

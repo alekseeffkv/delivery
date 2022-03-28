@@ -1,5 +1,6 @@
-import { CSSTransition } from 'react-transition-group';
 import './cart-button.scss';
+
+import { CSSTransition } from 'react-transition-group';
 
 const CartButton = () => {
   return (

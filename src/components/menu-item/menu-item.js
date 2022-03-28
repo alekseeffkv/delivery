@@ -1,5 +1,7 @@
-import Slider from 'react-slick';
 import './menu-item.scss';
+
+import Slider from 'react-slick';
+
 import ProductCard from '../product-card';
 
 const MenuItem = ({ category }) => {

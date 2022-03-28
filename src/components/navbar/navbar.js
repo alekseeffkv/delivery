@@ -1,8 +1,9 @@
+import './navbar.scss';
+
 import { Component } from 'react';
 
 import NavItem from '../nav-item';
 import CartButton from '../cart-button';
-import './navbar.scss';
 
 export default class Navbar extends Component {
   constructor(props) {

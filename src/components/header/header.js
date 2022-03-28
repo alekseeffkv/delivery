@@ -1,5 +1,6 @@
-import { Link } from 'react-router-dom';
 import './header.scss';
+
+import { Link } from 'react-router-dom';
 
 import Search from '../search';
 import CartButton from '../cart-button';
