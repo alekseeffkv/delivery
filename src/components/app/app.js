@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { connect } from 'react-redux';
+import { Route, Switch, Redirect } from 'react-router-dom';
 
 import Header from '../header';
 import Banner from '../banner';
@@ -13,23 +14,48 @@ import {
   categoriesListSelector,
   categoriesLoadingSelector,
   categoriesLoadedSelector,
+  productsLoadingSelector,
+  productsLoadedSelector,
 } from '../../redux/selectors';
-import { loadCategories } from '../../redux/actions';
+import { loadCategories, loadProducts } from '../../redux/actions';
 
-const App = ({ categories, loading, loaded, loadCategories }) => {
+const App = ({
+  categories,
+  catLoading,
+  catLoaded,
+  prodLoading,
+  prodLoaded,
+  loadCategories,
+  loadProducts,
+}) => {
   useEffect(() => {
-    if (!loading && !loaded) loadCategories();
-  }, [loading, loaded, loadCategories]);
+    if (!catLoading && !catLoaded) {
+      loadCategories();
+    }
+  }, [catLoading, catLoaded, loadCategories]);
 
-  if (loading) return <Loader />;
-  if (!loaded) return 'No data';
+  useEffect(() => {
+    if (!prodLoading && !prodLoaded) {
+      loadProducts();
+    }
+  }, [prodLoading, prodLoaded, loadProducts]);
+
+  if (catLoading || prodLoading) return <Loader />;
+  if (!catLoaded || !prodLoaded) return 'No data';
 
   return (
     <div>
       <Header />
       <Banner />
       <Navbar categories={categories} />
-      <Menu categories={categories} />
+      <Switch>
+        <Redirect exact from="/" to={`/categories/${categories[0].id}`} />
+        <Route
+          path="/categories/:catId"
+          component={({ match }) => <Menu id={match.params.catId} />}
+        />
+        <Route path="/" component={() => <h2>404 - Page Not Found</h2>} />
+      </Switch>
       <Contacts />
       <Footer />
     </div>
@@ -38,12 +64,15 @@ const App = ({ categories, loading, loaded, loadCategories }) => {
 
 const mapStateToProps = (state) => ({
   categories: categoriesListSelector(state),
-  loading: categoriesLoadingSelector(state),
-  loaded: categoriesLoadedSelector(state),
+  catLoading: categoriesLoadingSelector(state),
+  catLoaded: categoriesLoadedSelector(state),
+  prodLoading: productsLoadingSelector(state),
+  prodLoaded: productsLoadedSelector(state),
 });
 
 const mapDispatchToProps = {
   loadCategories,
+  loadProducts,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
