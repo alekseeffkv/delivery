@@ -1,36 +1,30 @@
-import { useEffect } from 'react';
+import './menu.scss';
+
 import { connect } from 'react-redux';
 
-import MenuItem from '../menu-item';
-import Loader from '../loader';
+import ProductCard from '../product-card';
 
-import { productsLoadingSelector, productsLoadedSelector } from '../../redux/selectors';
-import { loadProducts } from '../../redux/actions';
+import { categorySelector } from '../../redux/selectors';
 
-const Menu = ({ categories, loading, loaded, loadProducts }) => {
-  useEffect(() => {
-    if (!loading && !loaded) loadProducts();
-  }, [loading, loaded, loadProducts]);
-
-  if (loading) return <Loader />;
-  if (!loaded) return 'No data';
-
+const Menu = ({ category }) => {
   return (
-    <main>
-      {categories.map((category) => (
-        <MenuItem key={category.id} category={category} />
-      ))}
+    <main className="menu">
+      <div className="menu__title">
+        <div className="menu__title-inner">
+          <h2>{category.name.toUpperCase()}</h2>
+        </div>
+      </div>
+      <div className="menu__inner">
+        {category.dishes.map((id) => (
+          <ProductCard key={id} id={id} />
+        ))}
+      </div>
     </main>
   );
 };
 
-const mapStateToProps = (state) => ({
-  loading: productsLoadingSelector(state),
-  loaded: productsLoadedSelector(state),
+const mapStateToProps = (state, props) => ({
+  category: categorySelector(state, props),
 });
 
-const mapDispatchToProps = {
-  loadProducts,
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Menu);
+export default connect(mapStateToProps)(Menu);

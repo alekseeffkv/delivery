@@ -1,17 +1,13 @@
 @use '../../scss/variables' as v;
-@use '~slick-carousel/slick/slick';
-@use '~slick-carousel/slick/slick-theme';
 
-.menu-item {
+.menu {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  width: v.$container-width;
-  height: 575px;
+  max-width: v.$container-width;
   margin: 0 auto;
-  padding-bottom: 50px;
-  border-top: 1px solid v.$white10;
+  border-bottom: 1px solid v.$white10;
 
   &__title {
     width: 100%;
@@ -19,7 +15,7 @@
 
   &__title-inner {
     margin-left: 10px;
-    margin-top: 52px;
+    margin-top: 50px;
     border-left: 4px solid v.$dark-green;
     padding-left: 20px;
     font-family: Gilroy;
@@ -30,7 +26,11 @@
     color: v.$white;
   }
 
-  &__slider {
-    width: 1120px;
+  &__inner {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 70px;
+    padding: 50px 0;
   }
 }
