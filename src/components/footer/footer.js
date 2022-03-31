@@ -2,7 +2,6 @@
 import './footer.scss';
 
 import { Link } from 'react-router-dom';
-import { animateScroll as scroll } from 'react-scroll';
 
 import { ReactComponent as ArrowIcon } from '../../icons/arrow.svg';
 
@@ -10,7 +9,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer__container">
-        <div onClick={scroll.scrollToTop} className="footer__up">
+        <div onClick={() => window.scrollTo(0, 0)} className="footer__up">
           <ArrowIcon />
         </div>
 
