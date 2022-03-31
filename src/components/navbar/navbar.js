@@ -25,6 +25,12 @@ const Navbar = ({ categories }) => {
     url: `/categories/${id}`,
   }));
 
+  const handleClick = () => {
+    const menuTitle = document.querySelector('.menu__title-inner');
+    const titleScroll = menuTitle.getBoundingClientRect().top - 110;
+    window.scrollBy(0, titleScroll);
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar__inner">
@@ -34,7 +40,7 @@ const Navbar = ({ categories }) => {
             key={label}
             className="navbar__nav-item"
             activeClassName="navbar_active"
-            onClick={() => window.scrollTo(0, 550)}
+            onClick={handleClick}
           >
             {label}
           </NavLink>
