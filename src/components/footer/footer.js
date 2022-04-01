@@ -9,9 +9,9 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer__container">
-        <div onClick={() => window.scrollTo(0, 0)} className="footer__up">
+        <button onClick={() => window.scrollTo(0, 0)} className="footer__up">
           <ArrowIcon />
-        </div>
+        </button>
 
         <div className="footer__docs">
           <Link to="/">

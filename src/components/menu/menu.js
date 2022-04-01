@@ -1,12 +1,19 @@
 import './menu.scss';
 
 import { connect } from 'react-redux';
+import { useEffect } from 'react';
 
 import ProductCard from '../product-card';
 
 import { categorySelector } from '../../redux/selectors';
 
 const Menu = ({ category }) => {
+  useEffect(() => {
+    const menuTitle = document.querySelector('.menu__title-inner');
+    const titleScroll = menuTitle.getBoundingClientRect().top - 110;
+    window.scrollBy(0, titleScroll);
+  });
+
   return (
     <main className="menu">
       <div className="menu__title">
