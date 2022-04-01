@@ -4,7 +4,7 @@ import { useState, useEffect } from 'react';
 import { CSSTransition } from 'react-transition-group';
 import { NavLink } from 'react-router-dom';
 
-import CartButton from '../cart-button';
+import Button from '../button';
 
 const Navbar = ({ categories }) => {
   const [navbarCart, setNavbarCart] = useState(false);
@@ -25,12 +25,6 @@ const Navbar = ({ categories }) => {
     url: `/categories/${id}`,
   }));
 
-  const handleClick = () => {
-    const menuTitle = document.querySelector('.menu__title-inner');
-    const titleScroll = menuTitle.getBoundingClientRect().top - 110;
-    window.scrollBy(0, titleScroll);
-  };
-
   return (
     <nav className="navbar">
       <div className="navbar__inner">
@@ -40,15 +34,14 @@ const Navbar = ({ categories }) => {
             key={label}
             className="navbar__nav-item"
             activeClassName="navbar_active"
-            onClick={handleClick}
           >
             {label}
           </NavLink>
         ))}
 
         {navbarCart && (
-          <CSSTransition in={true} appear timeout={500} classNames="cart-button">
-            <CartButton />
+          <CSSTransition in={true} appear timeout={500} classNames="button">
+            <Button title="Корзина" border={true} counter={true} />
           </CSSTransition>
         )}
       </div>

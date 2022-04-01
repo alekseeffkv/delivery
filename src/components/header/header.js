@@ -3,7 +3,7 @@ import './header.scss';
 import { Link } from 'react-router-dom';
 
 import Search from '../search';
-import CartButton from '../cart-button';
+import Button from '../button';
 
 import { ReactComponent as PhoneIcon } from '../../icons/phone.svg';
 
@@ -25,7 +25,7 @@ const Header = () => {
           </div>
         </div>
 
-        <CartButton />
+        <Button title="Корзина" border={true} counter={true} />
       </div>
     </header>
   );
