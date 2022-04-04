@@ -1,11 +1,16 @@
-import { LOAD_CATEGORIES, LOAD_PRODUCTS } from './constants';
+import { LOAD_CATEGORIES, LOAD_PRODUCTS, LOAD_CROSS } from './constants';
 
 export const loadCategories = () => ({
   type: LOAD_CATEGORIES,
-  CallAPI: '/categories.json',
+  CallAPI: '/fixtures/categories.json',
 });
 
 export const loadProducts = () => ({
   type: LOAD_PRODUCTS,
-  CallAPI: '/products.json',
+  CallAPI: '/fixtures/products.json',
+});
+
+export const loadCrossSales = () => ({
+  type: LOAD_CROSS,
+  CallAPI: '/fixtures/cross-sales.json',
 });

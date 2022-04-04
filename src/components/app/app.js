@@ -6,6 +6,7 @@ import Header from '../header';
 import Banner from '../banner';
 import Navbar from '../navbar';
 import Menu from '../menu';
+import ProductPage from '../product-page';
 import Loader from '../loader';
 import Contacts from '../contacts';
 import Footer from '../footer';
@@ -53,6 +54,10 @@ const App = ({
         <Route
           path="/categories/:catId"
           component={({ match }) => <Menu id={match.params.catId} />}
+        />
+        <Route
+          path="/products/:prodId"
+          component={({ match }) => <ProductPage id={match.params.prodId} />}
         />
         <Route path="/" component={() => <h2>404 - Page Not Found</h2>} />
       </Switch>

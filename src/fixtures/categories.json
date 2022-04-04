@@ -15,84 +15,69 @@
     "id": "56f17831-93fb-4dba-b8fd-7361a8e12b98",
     "name": "Горячие закуски",
     "dishes": [
+      "8d98f976-c91d-400a-a54e-9bf964562b95",
       "1769c219-287a-4496-8ff6-f99b51e0aa7e",
       "157529c6-f49f-4d59-837b-8a33ef1b2ec4",
       "af71c65f-63ec-4faf-b9f0-76461ac8f106",
       "1a0d9328-28b1-46bb-946b-f5250fc835a5",
-      "6117cd07-53c7-4f12-ba13-67a225bcebeb",
-      "8d98f976-c91d-400a-a54e-9bf964562b95"
+      "6117cd07-53c7-4f12-ba13-67a225bcebeb"
     ]
   },
   {
     "id": "0bd55119-2327-480e-9e81-21232d9aa4b2",
     "name": "Мясные блюда",
     "dishes": [
+      "285c1373-2ad9-46bc-8b68-4e455bf4ce21",
+      "d8222447-a285-4a98-b201-719f96cc9194",
       "a245d885-8141-4be8-bc65-adcc9f52b8fd",
       "64ec037c-3dc3-4ddb-b871-6f3173481d98",
       "2d16351f-2c04-41cb-91d9-a53d03a466f3",
-      "abf57856-67bb-46b6-aa3c-9c6888b9e1b1",
-      "285c1373-2ad9-46bc-8b68-4e455bf4ce21",
-      "d8222447-a285-4a98-b201-719f96cc9194"
+      "abf57856-67bb-46b6-aa3c-9c6888b9e1b1"
     ]
   },
   {
     "id": "8c9a52c2-435f-4430-ba26-f713351ec028",
     "name": "Супы",
     "dishes": [
-      "5b8a0619-d00c-4a9d-95ce-02efbf8e9ff9",
-      "e9ccda22-607b-4e1f-80fc-23d19ff4a3c3",
-      "f04071a1-9a46-45de-843e-8e2a1ca3c33f",
       "6ecfc7b1-30c9-49b9-b600-cba69023a12f",
       "a4cdf5b9-4d36-4b4d-b821-b4247b337fe0",
-      "4c2dac54-8e8f-4da5-a248-df4da555aa50"
+      "4c2dac54-8e8f-4da5-a248-df4da555aa50",
+      "5b8a0619-d00c-4a9d-95ce-02efbf8e9ff9",
+      "e9ccda22-607b-4e1f-80fc-23d19ff4a3c3",
+      "f04071a1-9a46-45de-843e-8e2a1ca3c33f"
     ]
   },
   {
     "id": "d89281db-8ecf-434b-aa1f-d8767e61b71e",
     "name": "Рыбные блюда",
     "dishes": [
-      "419e6196-229d-4d23-9699-4172a14d5758",
-      "2ee234f0-d257-4779-969e-562b45f7e058",
       "9bc2aa7a-b288-44c0-bea5-a655043283ce",
       "d572316f-60e4-4a19-bbc8-960cfc4d9477",
       "513c6702-023f-45d8-b402-cd01e889b677",
-      "457af27c-8280-4c8a-aded-1bdb18effd25"
+      "457af27c-8280-4c8a-aded-1bdb18effd25",
+      "419e6196-229d-4d23-9699-4172a14d5758",
+      "2ee234f0-d257-4779-969e-562b45f7e058"
     ]
   },
   {
-    "id": "81024004-69d1-437f-aa81-99833962aee3",
+    "id": "81029404-69d1-437f-aa81-99833962aee3",
     "name": "Гриль меню",
     "dishes": [
-      "7c5b23b1-2db8-4b7a-a263-b1f969c53cd0",
       "b15dbf75-f36b-481e-9e88-61950ce362b4",
       "6a981238-be2e-4ad9-9fdf-98fadbcd429b",
       "db5fed38-7cd6-4dfe-bbe1-e4a3e608fbf9",
       "a238d75c-c163-48c1-985e-0c303dba21ad",
-      "9ef0ca57-fac1-43d8-bed9-d6a1c3419b08"
+      "9ef0ca57-fac1-43d8-bed9-d6a1c3419b08",
+      "7c5b23b1-2db8-4b7a-a263-b1f969c53cd0"
     ]
   },
   {
-    "id": "abc3332c-ea2b-4f7a-b8a5-6d6e494f4fb5",
-    "name": "Фирменные блюда",
+    "id": "32096304-69d1-821f-aa81-99801662aee3",
+    "name": "С этим товаром покупают",
     "dishes": [
-      "bf72bc9c-bc0e-40e3-bc37-dac70cccac43",
-      "26e8ccd9-5cf8-4be2-89fe-c466115ae5c4",
-      "903489f0-6ee5-45a2-864d-a439d334cd7a",
-      "5cd326f2-e019-4d87-a774-2419511c48fe",
-      "9fdf8d51-6288-4751-afd3-f8a565dff042",
-      "cb93293e-2f55-4e85-8e36-b689a35c6a37"
-    ]
-  },
-  {
-    "id": "587eb0b0-6295-4c68-a043-a006f2edbfa6",
-    "name": "Напитки",
-    "dishes": [
-      "c7e82de4-df13-4b75-95a4-8e0bfc1655a1",
-      "282e9aea-e88a-46c2-8aba-fd9c6f11fe28",
-      "a24d806a-643b-4ad8-a245-a12cfc254c0a",
-      "14b4fb66-2389-4a62-b4b7-fd387aad2520",
-      "3c30f1c0-35a5-4cd1-948f-e109deae6560",
-      "6fed1d4f-2e47-4af2-b7c1-416a6791863a"
+      "b15dbf75-f36b-481e-9e88-61950ce362b4",
+      "6a981238-be2e-4ad9-9fdf-98fadbcd429b",
+      "db5fed38-7cd6-4dfe-bbe1-e4a3e608fbf9"
     ]
   }
 ]
