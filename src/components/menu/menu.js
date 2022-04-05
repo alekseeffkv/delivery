@@ -1,23 +1,32 @@
 import './menu.scss';
 
 import { connect } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 
 import ProductCard from '../product-card';
 
 import { categorySelector, crossSaleSelector } from '../../redux/selectors';
 
 const Menu = ({ crossSelling, category, crossSale }) => {
+  const menuRef = useRef(null);
+  const firstRender = useRef(false);
+
   useEffect(() => {
-    const menuTitle = document.querySelector('.menu__title-inner');
-    const titleScroll = menuTitle.getBoundingClientRect().top - 110;
-    window.scrollBy(0, titleScroll);
+    if (crossSelling || !firstRender.current) return;
+
+    const menuScroll = menuRef.current?.getBoundingClientRect().top - 55;
+    console.log(menuScroll);
+    window.scrollBy(0, menuScroll);
   });
+
+  useEffect(() => {
+    firstRender.current = true;
+  }, []);
 
   const products = crossSelling ? crossSale : category;
 
   return (
-    <main className="menu">
+    <main ref={menuRef} className="menu">
       <div className="menu__title">
         <div className="menu__title-inner">
           <h2>{products.name.toUpperCase()}</h2>

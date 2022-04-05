@@ -1,7 +1,7 @@
 import './product-page.scss';
 
 import { connect } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import { numberSpace } from '../../utils';
 
 import Button from '../button';
@@ -23,12 +23,18 @@ const ProductPage = ({ product, loading, loaded, loadCrossSales }) => {
     }
   }, [loading, loaded, loadCrossSales]);
 
-  if (loading) return <Loader />;
+  const productPageRef = useRef(null);
+
+  useEffect(() => {
+    const productPageScroll = productPageRef.current?.getBoundingClientRect().top - 120;
+    window.scrollBy(0, productPageScroll);
+  });
+
   if (!loaded) return 'No data';
 
   return (
     <div>
-      <div className="product-page">
+      <div ref={productPageRef} className="product-page">
         <div className="product-page__inner">
           <div className="product-page__nav">
             <RoundButton icon="arrow" rotate="270" />
@@ -86,7 +92,11 @@ const ProductPage = ({ product, loading, loaded, loadCrossSales }) => {
           </div>
         </div>
       </div>
-      <Menu crossSelling={true} id="32096304-69d1-821f-aa81-99801662aee3" />
+      {loading ? (
+        <Loader />
+      ) : (
+        <Menu crossSelling={true} id="32096304-69d1-821f-aa81-99801662aee3" />
+      )}
     </div>
   );
 };
