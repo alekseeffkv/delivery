@@ -1,13 +1,21 @@
 import { FAILURE, REQUEST, SUCCESS } from '../constants';
 
+const createPostParams = (data) => ({
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(data),
+});
+
 export default (store) => (next) => async (action) => {
   if (!action.CallAPI) return next(action);
 
-  const { CallAPI, type, ...rest } = action;
+  const { CallAPI, type, postData, ...rest } = action;
   next({ ...rest, type: type + REQUEST });
 
   try {
-    const res = await fetch(CallAPI);
+    const params = postData ? createPostParams(postData) : {};
+
+    const res = await fetch(CallAPI, params);
     const data = await res.json();
 
     if (!res.ok) throw data;

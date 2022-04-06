@@ -37,8 +37,6 @@ const ProductPage = ({ product, loading, loaded, loadCrossSales }) => {
     history.goBack();
   };
 
-  if (!loaded) return 'No data';
-
   return (
     <>
       <div ref={productPageRef} className="product-page">
@@ -99,7 +97,11 @@ const ProductPage = ({ product, loading, loaded, loadCrossSales }) => {
           </div>
         </div>
       </div>
-      {loading ? <Loader /> : <Menu crossSelling id="32096304-69d1-821f-aa81-99801662aee3" />}
+      {loading ? (
+        <Loader />
+      ) : (
+        loaded && <Menu crossSelling id="32096304-69d1-821f-aa81-99801662aee3" />
+      )}
     </>
   );
 };
