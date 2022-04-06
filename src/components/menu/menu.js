@@ -15,7 +15,6 @@ const Menu = ({ crossSelling, category, crossSale }) => {
     if (crossSelling || !firstRender.current) return;
 
     const menuScroll = menuRef.current?.getBoundingClientRect().top - 55;
-    console.log(menuScroll);
     window.scrollBy(0, menuScroll);
   });
 
@@ -26,7 +25,7 @@ const Menu = ({ crossSelling, category, crossSale }) => {
   const products = crossSelling ? crossSale : category;
 
   return (
-    <main ref={menuRef} className="menu">
+    <div ref={menuRef} className="menu">
       <div className="menu__title">
         <div className="menu__title-inner">
           <h2>{products.name.toUpperCase()}</h2>
@@ -37,7 +36,7 @@ const Menu = ({ crossSelling, category, crossSale }) => {
           <ProductCard key={id} id={id} />
         ))}
       </div>
-    </main>
+    </div>
   );
 };
 

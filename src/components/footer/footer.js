@@ -9,7 +9,7 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer__container">
-        <button onClick={() => window.scrollTo(0, 0)} className="footer__up">
+        <button type="button" onClick={() => window.scrollTo(0, 0)} className="footer__up">
           <ArrowIcon />
         </button>
 

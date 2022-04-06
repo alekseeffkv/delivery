@@ -27,6 +27,7 @@ const Button = ({
 
   return (
     <button
+      type="button"
       className={cn('button', {
         button_small: small,
         button_medium: medium,

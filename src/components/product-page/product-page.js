@@ -2,6 +2,7 @@ import './product-page.scss';
 
 import { connect } from 'react-redux';
 import { useEffect, useRef } from 'react';
+import { useHistory } from 'react-router-dom';
 import { numberSpace } from '../../utils';
 
 import Button from '../button';
@@ -30,14 +31,20 @@ const ProductPage = ({ product, loading, loaded, loadCrossSales }) => {
     window.scrollBy(0, productPageScroll);
   });
 
+  const history = useHistory();
+
+  const handleClick = () => {
+    history.goBack();
+  };
+
   if (!loaded) return 'No data';
 
   return (
-    <div>
+    <>
       <div ref={productPageRef} className="product-page">
         <div className="product-page__inner">
           <div className="product-page__nav">
-            <RoundButton icon="arrow" rotate="270" />
+            <RoundButton icon="arrow" rotate="270" onClick={handleClick} />
             <div className="product-page__back">Вернуться назад</div>
           </div>
 
@@ -92,12 +99,8 @@ const ProductPage = ({ product, loading, loaded, loadCrossSales }) => {
           </div>
         </div>
       </div>
-      {loading ? (
-        <Loader />
-      ) : (
-        <Menu crossSelling={true} id="32096304-69d1-821f-aa81-99801662aee3" />
-      )}
-    </div>
+      {loading ? <Loader /> : <Menu crossSelling id="32096304-69d1-821f-aa81-99801662aee3" />}
+    </>
   );
 };
 

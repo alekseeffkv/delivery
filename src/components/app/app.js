@@ -45,7 +45,7 @@ const App = ({
   if (!catLoaded || !prodLoaded) return 'No data';
 
   return (
-    <div>
+    <>
       <Header />
       <Banner />
       <Navbar categories={categories} />
@@ -63,7 +63,7 @@ const App = ({
       </Switch>
       <Contacts />
       <Footer />
-    </div>
+    </>
   );
 };
 
