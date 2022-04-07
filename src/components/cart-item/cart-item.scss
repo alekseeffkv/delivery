@@ -1,0 +1,88 @@
+@use '../../scss/variables' as v;
+
+.cart-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 1074px;
+  height: 125px;
+  background-color: v.$dark-gray;
+  border-bottom: 1px solid v.$white10;
+
+  &__left {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-basis: 415px;
+    margin-left: 20px;
+  }
+
+  &__image {
+    flex-basis: 115px;
+    max-height: 85px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 50% 50%;
+    }
+  }
+
+  &__title {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-basis: 265px;
+  }
+
+  &__name {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22px;
+    color: v.$white;
+  }
+
+  &__composition {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 14px;
+    color: v.$gray;
+  }
+
+  &__right {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-basis: 380px;
+    margin-right: 45px;
+  }
+
+  &__counter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-basis: 100px;
+  }
+
+  &__amount {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 26px;
+    color: v.$white;
+  }
+
+  &__subtotal {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 26px;
+    color: v.$white;
+  }
+}

@@ -18,6 +18,9 @@ import {
 import { loadCrossSales } from '../../redux/actions';
 
 const ProductPage = ({ product, loading, loaded, loadCrossSales }) => {
+  const { image, name, composition, weight, price, proteins, fats, carbohydrates, calories } =
+    product;
+
   useEffect(() => {
     if (!loading && !loaded) {
       loadCrossSales();
@@ -48,46 +51,43 @@ const ProductPage = ({ product, loading, loaded, loadCrossSales }) => {
 
           <div className="product-page__body">
             <div className="product-page__image">
-              <img
-                src={process.env.PUBLIC_URL + '/images/product/' + product.image}
-                alt="product"
-              />
+              <img src={process.env.PUBLIC_URL + '/images/product/' + image} alt="product" />
             </div>
 
             <div className="product-page__info">
               <div className="product-page__title">
-                <div className="product-page__name">{product.name}</div>
-                <div className="product-page__composition">{product.composition}</div>
+                <div className="product-page__name">{name}</div>
+                <div className="product-page__composition">{composition}</div>
               </div>
 
               <div className="product-page__description">
-                <div className="product-page__weight">Вес: {product.weight} г</div>
+                <div className="product-page__weight">Вес: {weight} г</div>
 
                 <div className="product-page__buy">
                   <Button title="Корзина" icon="bag" border />
-                  <div className="product-page__price">{numberSpace(product.price)} ₽</div>
+                  <div className="product-page__price">{numberSpace(price)} ₽</div>
                 </div>
 
                 <div className="product-page__structure">
                   <div className="product-page__structure-element">
                     <div className="product-page__element-name">Белки</div>
-                    <div className="product-page__element-value">{product.proteins}</div>
+                    <div className="product-page__element-value">{proteins}</div>
                   </div>
                   <div className="product-page__structure-element">
                     <div className="product-page__element-name">Жиры</div>
-                    <div className="product-page__element-value">{product.fats}</div>
+                    <div className="product-page__element-value">{fats}</div>
                   </div>
                   <div className="product-page__structure-element">
                     <div className="product-page__element-name">Углеводы</div>
-                    <div className="product-page__element-value">{product.carbohydrates}</div>
+                    <div className="product-page__element-value">{carbohydrates}</div>
                   </div>
                   <div className="product-page__structure-element">
                     <div className="product-page__element-name">Ккал</div>
-                    <div className="product-page__element-value">{product.calories}</div>
+                    <div className="product-page__element-value">{calories}</div>
                   </div>
                   <div className="product-page__structure-element">
                     <div className="product-page__element-name">Вес</div>
-                    <div className="product-page__element-value">{product.weight}</div>
+                    <div className="product-page__element-value">{weight}</div>
                   </div>
 
                   <div className="product-page__line"></div>
