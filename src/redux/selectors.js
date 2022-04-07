@@ -10,6 +10,7 @@ export const categoriesListSelector = createSelector(categoriesSelector, Object.
 export const categorySelector = (state, { id }) => categoriesSelector(state)[id];
 export const productSelector = (state, { id }) => productsSelector(state)[id];
 export const crossSaleSelector = (state, { id }) => crossSalesSelector(state)[id];
+export const amountSelector = (state, { id }) => orderSelector(state)[id] || 0;
 
 export const categoriesLoadingSelector = (state) => state.categories.loading;
 export const categoriesLoadedSelector = (state) => state.categories.loaded;

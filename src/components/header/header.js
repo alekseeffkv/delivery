@@ -25,7 +25,7 @@ const Header = () => {
           </div>
         </div>
 
-        <Button title="Корзина" border={true} counter={true} />
+        <Button title="Корзина" border counter />
       </div>
     </header>
   );

@@ -64,7 +64,7 @@ const ProductPage = ({ product, loading, loaded, loadCrossSales }) => {
                 <div className="product-page__weight">Вес: {product.weight} г</div>
 
                 <div className="product-page__buy">
-                  <Button title="Корзина" icon="bag" border={true} />
+                  <Button title="Корзина" icon="bag" border />
                   <div className="product-page__price">{numberSpace(product.price)} ₽</div>
                 </div>
 

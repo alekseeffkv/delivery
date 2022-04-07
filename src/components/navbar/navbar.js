@@ -40,8 +40,8 @@ const Navbar = ({ categories }) => {
         ))}
 
         {navbarCart && (
-          <CSSTransition in={true} appear timeout={500} classNames="button">
-            <Button title="Корзина" border={true} counter={true} />
+          <CSSTransition in appear timeout={500} classNames="button">
+            <Button title="Корзина" border counter />
           </CSSTransition>
         )}
       </div>

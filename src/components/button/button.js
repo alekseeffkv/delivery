@@ -17,6 +17,7 @@ const icons = {
 const Button = ({
   title,
   icon,
+  onClick,
   small = false,
   medium = false,
   large = false,
@@ -33,8 +34,15 @@ const Button = ({
         button_medium: medium,
         button_large: large,
       })}
+      onClick={onClick}
     >
-      <div className="button__title">{title}</div>
+      <div
+        className={cn('button__title', {
+          button__title_hidden: !title,
+        })}
+      >
+        {title}
+      </div>
       <div
         className={cn('button__inner', {
           button__inner_hidden: !icon && !counter,
