@@ -27,9 +27,7 @@ const Menu = ({ crossSelling, category, crossSale }) => {
   return (
     <div ref={menuRef} className="menu">
       <div className="menu__title">
-        <div className="menu__title-inner">
-          <h2>{products.name.toUpperCase()}</h2>
-        </div>
+        <div className="menu__title-inner">{products.name.toUpperCase()}</div>
       </div>
       <div className="menu__inner">
         {products.dishes.map((id) => (
