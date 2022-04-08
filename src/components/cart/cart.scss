@@ -1,0 +1,134 @@
+@use '../../scss/variables' as v;
+
+.cart {
+  display: flex;
+  flex-direction: column;
+  max-width: v.$product-width;
+  margin: 50px auto 0;
+
+  &__nav {
+    display: flex;
+    align-items: center;
+  }
+
+  &__back {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: v.$white;
+    padding-left: 10px;
+  }
+
+  &__title {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 33px;
+    color: v.$white;
+    padding-left: 20px;
+    margin-top: 25px;
+    border-left: 4px solid v.$dark-green;
+  }
+
+  &__inner {
+    padding: 50px 0;
+    border-bottom: 1px solid v.$white10;
+  }
+
+  &__checkout {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 765px;
+    width: 100%;
+    flex-basis: 105px;
+    margin: 50px auto 0;
+    padding: 0 30px 0 40px;
+    background-color: v.$dark-gray;
+    border-radius: 10px;
+  }
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    min-height: 75px;
+    transition: min-height 0.5s;
+  }
+
+  &__total {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    color: v.$white;
+  }
+
+  &__cost {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 25px;
+    line-height: 31px;
+    color: v.$white;
+  }
+
+  &__paid {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    color: v.$gray;
+  }
+
+  &__rest {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    color: v.$gray;
+  }
+
+  &__min {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 15px;
+    color: v.$gray;
+  }
+
+  &__info_free {
+    min-height: 55px;
+  }
+}
+
+.cart-item {
+  &-enter {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  &-enter-active {
+    opacity: 1;
+    transform: translateX(0);
+    transition: opacity 500ms, transform 500ms;
+  }
+
+  &-exit {
+    opacity: 1;
+  }
+
+  &-exit-active {
+    opacity: 0;
+    transform: scale(0.9);
+    transition: opacity 500ms, transform 500ms;
+  }
+}

@@ -24,3 +24,20 @@ export const crossSalesLoadedSelector = (state) => state.crossSales.loaded;
 export const orderDataSelector = createSelector(orderSelector, (order) =>
   Object.entries(order).map(([id, amount]) => ({ id, amount })),
 );
+
+export const orderProductsSelector = createSelector(
+  [productsSelector, orderSelector],
+  (products, order) =>
+    Object.keys(order)
+      .filter((productId) => order[productId] > 0)
+      .map((productId) => products[productId])
+      .map((product) => ({
+        product,
+        amount: order[product.id],
+        subtotal: order[product.id] * product.price,
+      })),
+);
+
+export const totalSelector = createSelector(orderProductsSelector, (orderProducts) =>
+  orderProducts.reduce((acc, { subtotal }) => acc + subtotal, 0),
+);

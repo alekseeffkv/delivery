@@ -2,7 +2,7 @@ import './navbar.scss';
 
 import { useState, useEffect } from 'react';
 import { CSSTransition } from 'react-transition-group';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useHistory } from 'react-router-dom';
 
 import Button from '../button';
 
@@ -25,6 +25,11 @@ const Navbar = ({ categories }) => {
     url: `/categories/${id}`,
   }));
 
+  const history = useHistory();
+  const goToCart = () => {
+    history.push('/cart');
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar__inner">
@@ -41,7 +46,7 @@ const Navbar = ({ categories }) => {
 
         {navbarCart && (
           <CSSTransition in appear timeout={500} classNames="button">
-            <Button title="Корзина" border counter />
+            <Button title="Корзина" onClick={goToCart} border counter />
           </CSSTransition>
         )}
       </div>

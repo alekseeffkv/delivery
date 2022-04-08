@@ -10,6 +10,7 @@ import ProductPage from '../product-page';
 import Loader from '../loader';
 import Contacts from '../contacts';
 import Footer from '../footer';
+import Cart from '../cart';
 
 import {
   categoriesListSelector,
@@ -59,9 +60,10 @@ const App = ({
           path="/products/:prodId"
           component={({ match }) => <ProductPage id={match.params.prodId} />}
         />
+        <Route path="/cart" component={Cart} />
         <Route path="/" component={() => <h2>404 - Page Not Found</h2>} />
       </Switch>
-      <Contacts />
+      <Route path={['/categories/:catId', '/products/:prodId']} component={Contacts} />
       <Footer />
     </>
   );

@@ -1,6 +1,6 @@
 import './header.scss';
 
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import Search from '../search';
 import Button from '../button';
@@ -8,6 +8,11 @@ import Button from '../button';
 import { ReactComponent as PhoneIcon } from '../../icons/phone.svg';
 
 const Header = () => {
+  const history = useHistory();
+  const goToCart = () => {
+    history.push('/cart');
+  };
+
   return (
     <header className="header">
       <div className="header__container">
@@ -25,7 +30,7 @@ const Header = () => {
           </div>
         </div>
 
-        <Button title="Корзина" border counter />
+        <Button title="Корзина" onClick={goToCart} border counter />
       </div>
     </header>
   );
