@@ -35,7 +35,7 @@ const Cart = ({ orderProducts, total }) => {
       <div className="cart__title">КОРЗИНА</div>
 
       <div className="cart__inner">
-        <TransitionGroup>
+        <TransitionGroup component={null}>
           {orderProducts.map(({ product, amount, subtotal }) => (
             <CSSTransition key={product.id} timeout={500} classNames="cart-item">
               <CartItem product={product} amount={amount} subtotal={subtotal} />
@@ -51,9 +51,12 @@ const Cart = ({ orderProducts, total }) => {
           </div>
 
           {paidDelivery && (
-            <div className="cart__paid">
-              До бесплатной доставки не хватает <span className="cart__rest">{1000 - total} ₽</span>
-            </div>
+            <CSSTransition in appear timeout={500} classNames="cart__paid">
+              <div className="cart__paid">
+                До бесплатной доставки не хватает{' '}
+                <span className="cart__rest">{1000 - total} ₽</span>
+              </div>
+            </CSSTransition>
           )}
 
           <div className="cart__min">Минимальная сумма заказа 500 ₽</div>

@@ -116,6 +116,15 @@
   &-enter-active,
   &-appear-active {
     opacity: 1;
-    transition: opacity 500ms linear;
+    transition: opacity 500ms;
+  }
+
+  &-exit {
+    opacity: 1;
+  }
+
+  &-exit-active {
+    opacity: 0;
+    transition: opacity 500ms;
   }
 }

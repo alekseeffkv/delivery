@@ -57,7 +57,7 @@
     justify-content: space-between;
     align-items: flex-start;
     min-height: 75px;
-    transition: min-height 0.5s;
+    transition: min-height 500ms;
   }
 
   &__total {
@@ -85,6 +85,26 @@
     font-size: 12px;
     line-height: 15px;
     color: v.$gray;
+
+    &-enter,
+    &-appear {
+      opacity: 0;
+    }
+
+    &-enter-active,
+    &-appear-active {
+      opacity: 1;
+      transition: opacity 500ms;
+    }
+
+    &-exit {
+      opacity: 1;
+    }
+
+    &-exit-active {
+      opacity: 0;
+      transition: opacity 500ms;
+    }
   }
 
   &__rest {
@@ -107,28 +127,5 @@
 
   &__info_free {
     min-height: 55px;
-  }
-}
-
-.cart-item {
-  &-enter {
-    opacity: 0;
-    transform: scale(0.9);
-  }
-
-  &-enter-active {
-    opacity: 1;
-    transform: translateX(0);
-    transition: opacity 500ms, transform 500ms;
-  }
-
-  &-exit {
-    opacity: 1;
-  }
-
-  &-exit-active {
-    opacity: 0;
-    transform: scale(0.9);
-    transition: opacity 500ms, transform 500ms;
   }
 }
