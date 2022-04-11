@@ -6,7 +6,6 @@ import {
   REMOVE,
   LOAD_CATEGORIES,
   LOAD_PRODUCTS,
-  LOAD_CROSS,
   CREATE_ORDER,
 } from './constants';
 
@@ -24,11 +23,6 @@ export const loadCategories = () => ({
 export const loadProducts = () => ({
   type: LOAD_PRODUCTS,
   CallAPI: '/fixtures/products.json',
-});
-
-export const loadCrossSales = () => ({
-  type: LOAD_CROSS,
-  CallAPI: '/fixtures/cross-sales.json',
 });
 
 export const createOrder = () => async (dispatch, getState) => {

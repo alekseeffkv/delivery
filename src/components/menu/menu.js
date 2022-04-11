@@ -5,32 +5,25 @@ import { useEffect, useRef } from 'react';
 
 import ProductCard from '../product-card';
 
-import { categorySelector, crossSaleSelector } from '../../redux/selectors';
+import { categorySelector } from '../../redux/selectors';
 
-const Menu = ({ crossSelling, category, crossSale }) => {
+const Menu = ({ category }) => {
+  const { name, dishes } = category;
+
   const menuRef = useRef(null);
-  const firstRender = useRef(false);
 
   useEffect(() => {
-    if (crossSelling || !firstRender.current) return;
-
     const menuScroll = menuRef.current?.getBoundingClientRect().top - 55;
     window.scrollBy(0, menuScroll);
   });
 
-  useEffect(() => {
-    firstRender.current = true;
-  }, []);
-
-  const products = crossSelling ? crossSale : category;
-
   return (
     <div ref={menuRef} className="menu">
       <div className="menu__title">
-        <div className="menu__title-inner">{products.name.toUpperCase()}</div>
+        <div className="menu__title-inner">{name.toUpperCase()}</div>
       </div>
       <div className="menu__inner">
-        {products.dishes.map((id) => (
+        {dishes.map((id) => (
           <ProductCard key={id} id={id} />
         ))}
       </div>
@@ -40,7 +33,6 @@ const Menu = ({ crossSelling, category, crossSale }) => {
 
 const mapStateToProps = (state, props) => ({
   category: categorySelector(state, props),
-  crossSale: crossSaleSelector(state, props),
 });
 
 export default connect(mapStateToProps)(Menu);
