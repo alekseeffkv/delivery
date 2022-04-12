@@ -1,0 +1,166 @@
+@use '../../scss/variables' as v;
+
+.checkout {
+  display: flex;
+  flex-direction: column;
+  max-width: v.$checkout-width;
+  margin: 50px auto 0;
+
+  &__nav {
+    display: flex;
+    align-items: center;
+  }
+
+  &__back {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 20px;
+    color: v.$white;
+    padding-left: 10px;
+  }
+
+  &__title {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 32px;
+    line-height: 33px;
+    color: v.$white;
+    padding-left: 20px;
+    margin-top: 25px;
+    border-left: 4px solid v.$dark-green;
+  }
+
+  &__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 50px;
+    row-gap: 20px;
+  }
+
+  &__card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    width: 100%;
+    padding: 30px;
+    border-radius: 10px;
+    background-color: v.$dark-gray;
+  }
+
+  &__subtitle {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 20px;
+    color: v.$white;
+  }
+
+  &__card-inner {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding-top: 30px;
+    row-gap: 15px;
+  }
+
+  &__card-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    column-gap: 15px;
+
+    &_radio {
+      justify-content: flex-start;
+      column-gap: 0;
+    }
+  }
+
+  &__label {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    flex-basis: 185px;
+    height: 60px;
+    cursor: pointer;
+
+    span {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 16px;
+      line-height: 19px;
+      color: v.$white;
+      position: relative;
+      z-index: 1;
+    }
+  }
+
+  &__personal {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    position: relative;
+    padding-left: 33px;
+    cursor: pointer;
+
+    pre {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 500;
+      font-size: 13px;
+      line-height: 16px;
+      color: v.$white;
+    }
+
+    a {
+      color: v.$green;
+      text-decoration-line: underline;
+      text-decoration-color: v.$green;
+    }
+  }
+
+  &__checkbox {
+    position: absolute;
+    height: 0;
+    width: 0;
+    opacity: 0;
+
+    &:checked ~ .checkout__checkmark:after {
+      opacity: 1;
+    }
+  }
+
+  &__checkmark {
+    position: absolute;
+    left: 0;
+    height: 22px;
+    width: 22px;
+    background-color: v.$white;
+    border-radius: 3px;
+
+    &:after {
+      content: '';
+      position: absolute;
+      left: 6.5px;
+      top: 2px;
+      width: 5px;
+      height: 10px;
+      border: solid v.$green;
+      border-width: 0 4px 4px 0;
+      transform: rotate(45deg);
+      opacity: 0;
+      transition: opacity 0.25s;
+    }
+  }
+}

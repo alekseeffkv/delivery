@@ -11,6 +11,7 @@ import Loader from '../loader';
 import Contacts from '../contacts';
 import Footer from '../footer';
 import Cart from '../cart';
+import Checkout from '../checkout';
 
 import {
   categoriesListSelector,
@@ -61,6 +62,7 @@ const App = ({
           component={({ match }) => <ProductPage id={match.params.prodId} />}
         />
         <Route path="/cart" component={Cart} />
+        <Route path="/checkout" component={Checkout} />
         <Route path="/" component={() => <h2>404 - Page Not Found</h2>} />
       </Switch>
       <Route path={['/categories/:catId', '/products/:prodId']} component={Contacts} />

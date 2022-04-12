@@ -34,7 +34,7 @@ const Contacts = () => {
         </div>
 
         <div className="contacts__reservation">
-          <Button title="ПОСМОТРЕТЬ МЕНЮ" large />
+          <Button type="button" title="ПОСМОТРЕТЬ МЕНЮ" large />
           <div className="contacts__phone">
             <div className="contacts__number">{contactItems.phone}</div>
             <div className="contacts__description">Звоните или оставляйте заявку</div>

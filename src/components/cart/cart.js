@@ -21,9 +21,16 @@ const Cart = ({ orderProducts, total }) => {
   }, [total]);
 
   const history = useHistory();
+
   const goToProducts = () => {
     history.push('/');
   };
+
+  const goToCheckout = () => {
+    history.push('/checkout');
+  };
+
+  const rest = 1000 - total;
 
   return (
     <div className="cart">
@@ -53,15 +60,14 @@ const Cart = ({ orderProducts, total }) => {
           {paidDelivery && (
             <CSSTransition in appear timeout={500} classNames="cart__paid">
               <div className="cart__paid">
-                До бесплатной доставки не хватает{' '}
-                <span className="cart__rest">{1000 - total} ₽</span>
+                До бесплатной доставки не хватает <span className="cart__rest">{rest} ₽</span>
               </div>
             </CSSTransition>
           )}
 
           <div className="cart__min">Минимальная сумма заказа 500 ₽</div>
         </div>
-        <Button title="Оформить заказ" large />
+        <Button type="button" title="Оформить заказ" large onClick={goToCheckout} />
       </div>
     </div>
   );
