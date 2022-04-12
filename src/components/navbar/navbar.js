@@ -46,7 +46,7 @@ const Navbar = ({ categories }) => {
 
         {navbarCart && (
           <CSSTransition in appear timeout={500} classNames="button">
-            <Button title="Корзина" onClick={goToCart} border counter />
+            <Button type="button" title="Корзина" onClick={goToCart} border counter />
           </CSSTransition>
         )}
       </div>

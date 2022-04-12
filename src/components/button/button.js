@@ -15,6 +15,7 @@ const icons = {
 };
 
 const Button = ({
+  type,
   title,
   icon,
   onClick,
@@ -28,7 +29,7 @@ const Button = ({
 
   return (
     <button
-      type="button"
+      type={type}
       className={cn('button', {
         button_small: small,
         button_medium: medium,

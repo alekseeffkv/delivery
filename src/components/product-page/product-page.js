@@ -50,7 +50,7 @@ const ProductPage = ({ product }) => {
               <div className="product-page__weight">Вес: {weight} г</div>
 
               <div className="product-page__buy">
-                <Button title="Корзина" icon="bag" border />
+                <Button type="button" title="Корзина" icon="bag" border />
                 <div className="product-page__price">{numberSpace(price)} ₽</div>
               </div>
 

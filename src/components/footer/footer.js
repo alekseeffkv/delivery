@@ -6,10 +6,14 @@ import { Link } from 'react-router-dom';
 import { ReactComponent as ArrowIcon } from '../../icons/arrow.svg';
 
 const Footer = () => {
+  const goToTop = () => {
+    window.scrollTo(0, 0);
+  };
+
   return (
     <footer className="footer">
       <div className="footer__container">
-        <button type="button" onClick={() => window.scrollTo(0, 0)} className="footer__up">
+        <button type="button" onClick={goToTop} className="footer__up">
           <ArrowIcon />
         </button>
 

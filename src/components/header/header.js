@@ -30,7 +30,7 @@ const Header = () => {
           </div>
         </div>
 
-        <Button title="Корзина" onClick={goToCart} border counter />
+        <Button type="button" title="Корзина" onClick={goToCart} border counter />
       </div>
     </header>
   );

@@ -69,15 +69,19 @@ const ProductCard = ({ product, amount, decrement, increment }) => {
         <div className="card__description">{description}</div>
 
         <div className="card__bottom">
-          {buttonsState.amountButtons && <Button icon="minus" onClick={handleDecrement} small />}
+          {buttonsState.amountButtons && (
+            <Button type="button" icon="minus" onClick={handleDecrement} small />
+          )}
 
           <div className="card__price">{numberSpace(price)} ₽</div>
 
           {buttonsState.cartButton && (
-            <Button title="В корзину" icon="cart" onClick={handleIncrement} medium />
+            <Button type="button" title="В корзину" icon="cart" onClick={handleIncrement} medium />
           )}
 
-          {buttonsState.amountButtons && <Button icon="plus" onClick={handleIncrement} small />}
+          {buttonsState.amountButtons && (
+            <Button type="button" icon="plus" onClick={handleIncrement} small />
+          )}
         </div>
       </div>
     </div>
