@@ -1,0 +1,76 @@
+@use '../../scss/variables' as v;
+
+.checkout-input {
+  flex-grow: 1;
+  height: 60px;
+  border-radius: 10px;
+  border: 1px solid v.$white10;
+  background-color: transparent;
+  padding-left: 20px;
+  outline: none;
+  font-family: Gilroy;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: v.$white;
+  appearance: none;
+
+  &::placeholder {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: v.$gray;
+  }
+
+  &[type='time']::-webkit-calendar-picker-indicator {
+    display: none;
+  }
+
+  &:focus {
+    border-color: v.$green;
+  }
+
+  &:checked {
+    background-color: v.$green;
+  }
+
+  &_radio {
+    position: absolute;
+    width: 100%;
+    padding: 0;
+    border-radius: 0;
+    border-color: v.$green;
+    cursor: pointer;
+  }
+
+  &_radio-left {
+    border-radius: 10px 0 0 10px;
+  }
+
+  &_radio-right {
+    border-radius: 0 10px 10px 0;
+  }
+
+  &-enter,
+  &-appear {
+    opacity: 0;
+  }
+
+  &-enter-active,
+  &-appear-active {
+    opacity: 1;
+    transition: opacity 500ms;
+  }
+
+  &-exit {
+    opacity: 1;
+  }
+
+  &-exit-active {
+    opacity: 0;
+    transition: opacity 500ms;
+  }
+}
