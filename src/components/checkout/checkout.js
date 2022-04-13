@@ -12,7 +12,11 @@ import CheckoutPay from '../checkout-pay';
 import CheckoutTime from '../checkout-time';
 
 const Checkout = () => {
-  const { register, handleSubmit } = useForm();
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useForm({ mode: 'onBlur' });
 
   const history = useHistory();
   const goToCart = () => {
@@ -29,9 +33,9 @@ const Checkout = () => {
       <div className="checkout__title">ОФОРМЛЕНИЕ ЗАКАЗА</div>
 
       <form onSubmit={handleSubmit} className="checkout__inner">
-        <CheckoutContacts register={register} />
+        <CheckoutContacts register={register} errors={errors} />
 
-        <CheckoutAddress register={register} />
+        <CheckoutAddress register={register} errors={errors} />
 
         <CheckoutPay register={register} />
 
@@ -43,7 +47,11 @@ const Checkout = () => {
               <pre>
                 Я согласен на обработку моих перс. данных в соответствии с <a href="#">Условиями</a>
               </pre>
-              <input type="checkbox" className="checkout__checkbox" />
+              <input
+                type="checkbox"
+                className="checkout__checkbox"
+                {...register('checkbox', { required: true })}
+              />
               <div className="checkout__checkmark"></div>
             </label>
 

@@ -1,25 +1,42 @@
 import CheckoutInput from '../checkout-input';
+import { ErrorMessage } from '@hookform/error-message';
 
-const CheckoutAddress = ({ register }) => {
+const CheckoutAddress = ({ register, errors }) => {
   return (
     <div className="checkout__card">
       <div className="checkout__subtitle">2. Адрес доставки</div>
 
       <div className="checkout__card-inner">
         <div className="checkout__card-row">
-          <CheckoutInput
-            type="text"
-            placeholder="Укажите улицу"
-            register={register('street')}
-            required
-          />
-          <CheckoutInput
-            type="text"
-            placeholder="Номер дома"
-            width="237"
-            register={register('building')}
-            required
-          />
+          <div className="checkout__card-field">
+            <CheckoutInput
+              type="text"
+              placeholder="Укажите улицу"
+              register={register('street', { required: 'Обязательное поле' })}
+              error={errors.street}
+              required
+            />
+            <ErrorMessage
+              name="street"
+              errors={errors}
+              render={({ message }) => <div className="checkout__error">{message}</div>}
+            />
+          </div>
+
+          <div className="checkout__card-field" style={{ maxWidth: 237 }}>
+            <CheckoutInput
+              type="text"
+              placeholder="Номер дома"
+              register={register('building', { required: 'Обязательное поле' })}
+              error={errors.building}
+              required
+            />
+            <ErrorMessage
+              name="building"
+              errors={errors}
+              render={({ message }) => <div className="checkout__error">{message}</div>}
+            />
+          </div>
         </div>
 
         <div className="checkout__card-row">

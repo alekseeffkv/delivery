@@ -39,7 +39,7 @@ const CheckoutTime = ({ register }) => {
             />
           </label>
 
-          <CSSTransition in={activeTime} unmountOnExit timeout={500} classNames="checkout-input">
+          <CSSTransition in={activeTime} unmountOnExit timeout={250} classNames="checkout-input">
             <CheckoutInput
               type="time"
               width="185"

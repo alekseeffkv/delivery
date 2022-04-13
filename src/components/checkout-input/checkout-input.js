@@ -14,6 +14,7 @@ const CheckoutInput = ({
   required,
   left,
   right,
+  error,
 }) => {
   const asterisk = required ? '*' : '';
 
@@ -28,6 +29,7 @@ const CheckoutInput = ({
         'checkout-input_radio': type === 'radio',
         'checkout-input_radio-left': left,
         'checkout-input_radio-right': right,
+        'checkout-input_error': error,
       })}
       style={{ maxWidth: `${width}px`, marginLeft: `${margin}px` }}
       {...register}
