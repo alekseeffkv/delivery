@@ -58,6 +58,7 @@ const App = ({
       <Navbar categories={categories} />
       <Switch>
         <Redirect exact from="/" to={firstCategory} />
+        <Redirect exact from="/categories" to={`/categories/${categories[0].id}`} />
         <Route
           path="/categories/:catId"
           component={({ match }) => <Menu id={match.params.catId} />}

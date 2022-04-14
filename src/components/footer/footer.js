@@ -26,19 +26,27 @@ const Footer = () => {
             <div className="footer__links-title">
               © ООО «ДЕЛИВЕРИ»
               <br />
-              Все права защищены. 2010-2022
+              Все права защищены 2010-2022
             </div>
-            <a href="#">Пользовательское соглашение</a>
-            <a href="#">Карта сайта</a>
-            <a href="#">Политика конфиденциальности</a>
+            <Link to="#">Пользовательское соглашение</Link>
+            <Link to="#">Карта сайта</Link>
+            <Link to="#">Политика конфиденциальности</Link>
           </div>
         </div>
 
         <div className="footer__nav">
-          <div className="footer__nav-items">О нас</div>
-          <div className="footer__nav-items">Условия доставки</div>
-          <div className="footer__nav-items">Возврат товара</div>
-          <div className="footer__nav-items">Акции</div>
+          <Link to="#" className="footer__nav-items">
+            О нас
+          </Link>
+          <Link to="#" className="footer__nav-items">
+            Условия доставки
+          </Link>
+          <Link to="#" className="footer__nav-items">
+            Возврат товара
+          </Link>
+          <Link to="#" className="footer__nav-items">
+            Акции
+          </Link>
         </div>
       </div>
     </footer>
