@@ -2,6 +2,7 @@ import './menu.scss';
 
 import { connect } from 'react-redux';
 import { useEffect, useRef } from 'react';
+import { useLocation } from 'react-router-dom';
 
 import ProductCard from '../product-card';
 
@@ -12,9 +13,13 @@ const Menu = ({ category }) => {
 
   const menuRef = useRef(null);
 
+  const location = useLocation();
+
   useEffect(() => {
-    const menuScroll = menuRef.current?.getBoundingClientRect().top - 55;
-    window.scrollBy(0, menuScroll);
+    if (!location.state?.fromHome) {
+      const menuScroll = menuRef.current?.getBoundingClientRect().top - 55;
+      window.scrollBy(0, menuScroll);
+    }
   });
 
   return (
