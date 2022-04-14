@@ -25,9 +25,9 @@ export const loadProducts = () => ({
   CallAPI: '/fixtures/products.json',
 });
 
-export const createOrder = () => async (dispatch, getState) => {
+export const createOrder = (data) => async (dispatch, getState) => {
   const state = getState();
-  const postData = orderDataSelector(state);
+  const postData = { user: data, order: orderDataSelector(state) };
 
   try {
     await dispatch({ type: CREATE_ORDER, CallAPI: 'https://httpbin.org/post', postData });

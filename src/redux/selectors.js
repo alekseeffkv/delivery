@@ -16,6 +16,8 @@ export const categoriesLoadedSelector = (state) => state.categories.loaded;
 export const productsLoadingSelector = (state) => state.products.loading;
 export const productsLoadedSelector = (state) => state.products.loaded;
 
+export const orderLoadingSelector = (state) => state.order.loading;
+
 export const orderDataSelector = createSelector(orderSelector, (order) =>
   Object.entries(order).map(([id, amount]) => ({ id, amount })),
 );

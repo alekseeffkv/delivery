@@ -3,6 +3,7 @@ import './checkout.scss';
 
 import { useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { connect } from 'react-redux';
 
 import Button from '../button';
 import RoundButton from '../round-button';
@@ -10,8 +11,12 @@ import CheckoutContacts from '../checkout-contacts';
 import CheckoutAddress from '../checkout-address';
 import CheckoutPay from '../checkout-pay';
 import CheckoutTime from '../checkout-time';
+import Loader from '../loader';
 
-const Checkout = () => {
+import { orderLoadingSelector } from '../../redux/selectors';
+import { createOrder } from '../../redux/actions';
+
+const Checkout = ({ loading, createOrder }) => {
   const {
     register,
     formState: { errors },
@@ -25,6 +30,12 @@ const Checkout = () => {
 
   return (
     <div className="checkout">
+      {loading && (
+        <div className="checkout__loading">
+          <Loader />
+        </div>
+      )}
+
       <div className="checkout__nav">
         <RoundButton icon="arrow" rotate="270" onClick={goToCart} />
         <div className="checkout__back">В корзину</div>
@@ -32,7 +43,7 @@ const Checkout = () => {
 
       <div className="checkout__title">ОФОРМЛЕНИЕ ЗАКАЗА</div>
 
-      <form onSubmit={handleSubmit} className="checkout__inner">
+      <form onSubmit={handleSubmit(createOrder)} className="checkout__inner">
         <CheckoutContacts register={register} errors={errors} />
 
         <CheckoutAddress register={register} errors={errors} />
@@ -50,7 +61,7 @@ const Checkout = () => {
               <input
                 type="checkbox"
                 className="checkout__checkbox"
-                {...register('checkbox', { required: true })}
+                {...register('personal', { required: true })}
               />
               <div className="checkout__checkmark"></div>
             </label>
@@ -63,4 +74,12 @@ const Checkout = () => {
   );
 };
 
-export default Checkout;
+const mapStateToProps = (state) => {
+  return {
+    loading: orderLoadingSelector(state),
+  };
+};
+
+const mapDispatchToProps = { createOrder };
+
+export default connect(mapStateToProps, mapDispatchToProps)(Checkout);
