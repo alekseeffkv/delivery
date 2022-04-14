@@ -1,38 +1,16 @@
 import './navbar.scss';
 
-import { useState, useEffect } from 'react';
-import { CSSTransition } from 'react-transition-group';
-import { NavLink, useHistory } from 'react-router-dom';
-
-import Button from '../button';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = ({ categories }) => {
-  const [navbarCart, setNavbarCart] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      const currentNavbarCart = window.pageYOffset > 100;
-      setNavbarCart(currentNavbarCart);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   const navItems = categories.map(({ id, name }) => ({
     label: name,
     url: `/categories/${id}`,
   }));
 
-  const history = useHistory();
-  const goToCart = () => {
-    history.push('/cart');
-  };
-
   return (
     <nav className="navbar">
-      <div className="navbar__inner">
+      <div className="navbar__container">
         {navItems.map(({ label, url }) => (
           <NavLink
             to={url}
@@ -43,12 +21,6 @@ const Navbar = ({ categories }) => {
             {label}
           </NavLink>
         ))}
-
-        {navbarCart && (
-          <CSSTransition in appear timeout={500} classNames="button">
-            <Button type="button" title="Корзина" onClick={goToCart} border counter />
-          </CSSTransition>
-        )}
       </div>
     </nav>
   );

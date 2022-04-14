@@ -1,16 +1,14 @@
 @use '../../scss/variables' as v;
 
 .product-page {
-  max-width: v.$container-width;
-  margin: 50px auto 0;
   padding-bottom: 50px;
   border-bottom: 1px solid v.$white10;
 
-  &__inner {
+  &__container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    margin: 0 auto;
+    margin: 25px auto 0;
     max-width: v.$product-width;
   }
 

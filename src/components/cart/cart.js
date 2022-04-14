@@ -20,6 +20,10 @@ const Cart = ({ orderProducts, total }) => {
     total >= 1000 ? setPaidDelivery(false) : setPaidDelivery(true);
   }, [total]);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const history = useHistory();
 
   const goToProducts = () => {

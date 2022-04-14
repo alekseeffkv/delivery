@@ -1,7 +1,7 @@
 import './product-page.scss';
 
 import { connect } from 'react-redux';
-import { useEffect, useRef } from 'react';
+import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { numberSpace } from '../../utils';
 
@@ -14,12 +14,9 @@ const ProductPage = ({ product }) => {
   const { image, name, composition, weight, price, proteins, fats, carbohydrates, calories } =
     product;
 
-  const productPageRef = useRef(null);
-
   useEffect(() => {
-    const productPageScroll = productPageRef.current?.getBoundingClientRect().top - 120;
-    window.scrollBy(0, productPageScroll);
-  });
+    window.scrollTo(0, 0);
+  }, []);
 
   const history = useHistory();
 
@@ -28,8 +25,8 @@ const ProductPage = ({ product }) => {
   };
 
   return (
-    <div ref={productPageRef} className="product-page">
-      <div className="product-page__inner">
+    <div className="product-page">
+      <div className="product-page__container">
         <div className="product-page__nav">
           <RoundButton icon="arrow" rotate="270" onClick={handleClick} />
           <div className="product-page__back">Вернуться назад</div>

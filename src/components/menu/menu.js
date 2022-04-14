@@ -17,20 +17,22 @@ const Menu = ({ category }) => {
 
   useEffect(() => {
     if (!location.state?.fromHome) {
-      const menuScroll = menuRef.current?.getBoundingClientRect().top - 55;
+      const menuScroll = menuRef.current?.getBoundingClientRect().top - 75;
       window.scrollBy(0, menuScroll);
     }
   });
 
   return (
     <div ref={menuRef} className="menu">
-      <div className="menu__title">
-        <div className="menu__title-inner">{name.toUpperCase()}</div>
-      </div>
-      <div className="menu__inner">
-        {dishes.map((id) => (
-          <ProductCard key={id} id={id} />
-        ))}
+      <div className="menu__container">
+        <div className="menu__title">
+          <div className="menu__title-inner">{name.toUpperCase()}</div>
+        </div>
+        <div className="menu__inner">
+          {dishes.map((id) => (
+            <ProductCard key={id} id={id} />
+          ))}
+        </div>
       </div>
     </div>
   );

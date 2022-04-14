@@ -1,13 +1,16 @@
 @use '../../scss/variables' as v;
 
 .menu {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  max-width: v.$container-width;
-  margin: 0 auto;
   border-bottom: 1px solid v.$white10;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    max-width: v.$container-width;
+    margin: 0 auto;
+  }
 
   &__title {
     width: 100%;

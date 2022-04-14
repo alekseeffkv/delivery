@@ -54,7 +54,7 @@ const App = ({
   return (
     <>
       <Header />
-      <Banner />
+      <Route path="/categories/:catId" component={Banner} />
       <Navbar categories={categories} />
       <Switch>
         <Redirect exact from="/" to={firstCategory} />

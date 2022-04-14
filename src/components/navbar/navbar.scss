@@ -2,18 +2,19 @@
 
 .navbar {
   position: sticky;
-  top: 0;
-  z-index: 1;
+  top: 70px;
+  z-index: 2;
   background-color: v.$bg-color;
+  height: 45px;
+  border-bottom: 1px solid v.$white10;
 
-  &__inner {
+  &__container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: v.$container-width;
-    height: 73px;
+    height: 100%;
     margin: 0 auto;
-    border-bottom: 1px solid v.$white10;
   }
 
   &__nav-item {

@@ -1,7 +1,12 @@
 @use '../../scss/variables' as v;
 
 .header {
-  height: 100px;
+  position: sticky;
+  top: 0;
+  z-index: 2;
+  background-color: v.$bg-color;
+  height: 70px;
+  border-bottom: 1px solid v.$white10;
 
   &__container {
     display: flex;
