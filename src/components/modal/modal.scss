@@ -1,0 +1,57 @@
+@use '../../scss/variables' as v;
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__window {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    flex-basis: 460px;
+    min-height: 350px;
+    background-color: v.$dark-gray;
+    border-radius: 10px;
+    padding: 50px;
+    position: relative;
+
+    svg {
+      flex-basis: 90px;
+
+      path {
+        fill: v.$green;
+      }
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    transform: rotate(45deg);
+    cursor: pointer;
+  }
+
+  &__title {
+    font-family: Gilroy;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 37px;
+    color: v.$white;
+  }
+
+  &__text {
+    &_hidden {
+      display: none;
+    }
+  }
+}
