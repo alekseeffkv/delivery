@@ -19,6 +19,7 @@ const Button = ({
   title,
   icon,
   onClick,
+  amount,
   small = false,
   medium = false,
   large = false,
@@ -52,7 +53,7 @@ const Button = ({
       >
         {Icon && <Icon />}
         <div className={cn('button__counter', { button__counter_hidden: !counter })}>
-          <div className="button__amount">4</div>
+          <div className="button__amount">{amount}</div>
         </div>
       </div>
     </button>

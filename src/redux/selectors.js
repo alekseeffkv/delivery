@@ -38,3 +38,7 @@ export const orderProductsSelector = createSelector(
 export const totalSelector = createSelector(orderProductsSelector, (orderProducts) =>
   orderProducts.reduce((acc, { subtotal }) => acc + subtotal, 0),
 );
+
+export const totalAmountSelector = createSelector(orderProductsSelector, (orderProducts) =>
+  orderProducts.reduce((acc, { amount }) => acc + amount, 0),
+);

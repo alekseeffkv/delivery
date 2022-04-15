@@ -1,15 +1,18 @@
 import './header.scss';
 
 import { Link, useHistory } from 'react-router-dom';
+import { connect } from 'react-redux';
 import { noSpace } from '../../utils';
 
 import Search from '../search';
 import Button from '../button';
 import { ReactComponent as PhoneIcon } from '../../icons/phone.svg';
 
+import { totalAmountSelector } from '../../redux/selectors';
+
 import contactItems from '../contacts/contact-items';
 
-const Header = () => {
+const Header = ({ totalAmount }) => {
   const history = useHistory();
   const goToCart = () => {
     history.push('/cart');
@@ -34,10 +37,23 @@ const Header = () => {
           </div>
         </div>
 
-        <Button type="button" title="Корзина" onClick={goToCart} border counter />
+        <Button
+          type="button"
+          title="Корзина"
+          onClick={goToCart}
+          amount={totalAmount}
+          border
+          counter
+        />
       </div>
     </header>
   );
 };
 
-export default Header;
+const mapStateToProps = (state) => {
+  return {
+    totalAmount: totalAmountSelector(state),
+  };
+};
+
+export default connect(mapStateToProps)(Header);
