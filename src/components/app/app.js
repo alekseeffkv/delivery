@@ -46,18 +46,13 @@ const App = ({
   if (catLoading || prodLoading) return <Loader />;
   if (!catLoaded || !prodLoaded) return 'No data';
 
-  const firstCategory = {
-    pathname: `/categories/${categories[0].id}`,
-    state: { fromHome: true },
-  };
-
   return (
     <>
       <Header />
       <Route path="/categories/:catId" component={Banner} />
       <Navbar categories={categories} />
       <Switch>
-        <Redirect exact from="/" to={firstCategory} />
+        <Redirect exact from="/" to={`/categories/${categories[0].id}`} />
         <Redirect exact from="/categories" to={`/categories/${categories[0].id}`} />
         <Route
           path="/categories/:catId"
