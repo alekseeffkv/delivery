@@ -3,13 +3,13 @@ import './contacts.scss';
 import { useHistory } from 'react-router-dom';
 import { noSpace } from '../../utils';
 
-import contactItems from './contact-items';
-
 import Button from '../button';
 import { ReactComponent as LocationIcon } from '../../icons/location.svg';
 import { ReactComponent as MessageIcon } from '../../icons/message.svg';
 import { ReactComponent as VkIcon } from '../../icons/vk.svg';
 import { ReactComponent as YoutubeIcon } from '../../icons/youtube.svg';
+
+import contactItems from './contact-items';
 
 const Contacts = () => {
   const history = useHistory();

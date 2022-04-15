@@ -1,7 +1,7 @@
-import CheckoutInput from '../checkout-input';
-
 import { useState } from 'react';
 import { CSSTransition } from 'react-transition-group';
+
+import CheckoutInput from '../checkout-input';
 
 const CheckoutPay = ({ register }) => {
   const [activeCash, setActiveCash] = useState(true);

@@ -1,5 +1,6 @@
-import CheckoutInput from '../checkout-input';
 import { ErrorMessage } from '@hookform/error-message';
+
+import CheckoutInput from '../checkout-input';
 
 const CheckoutAddress = ({ register, errors }) => {
   return (
