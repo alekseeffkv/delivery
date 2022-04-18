@@ -42,10 +42,11 @@ const Header = ({ totalAmount, emptyCartModal }) => {
         <Button
           type="button"
           title="Корзина"
+          icon={!totalAmount && 'cart'}
           onClick={goToCart}
           amount={totalAmount}
+          counter={!!totalAmount}
           border
-          counter
         />
       </div>
     </header>
