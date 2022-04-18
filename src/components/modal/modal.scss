@@ -30,6 +30,27 @@
         fill: v.$green;
       }
     }
+
+    &-enter {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+
+    &-enter-active {
+      opacity: 1;
+      transform: translateX(0);
+      transition: opacity 500ms, transform 500ms;
+    }
+
+    &-exit {
+      opacity: 1;
+    }
+
+    &-exit-active {
+      opacity: 0;
+      transform: scale(0.9);
+      transition: opacity 500ms, transform 500ms;
+    }
   }
 
   &__close {
@@ -38,6 +59,13 @@
     right: 20px;
     transform: rotate(45deg);
     cursor: pointer;
+
+    &:hover {
+      rect {
+        fill: v.$gray;
+        transition: fill 250ms;
+      }
+    }
   }
 
   &__title {
@@ -49,7 +77,7 @@
     color: v.$white;
   }
 
-  &__text {
+  &__content {
     &_hidden {
       display: none;
     }

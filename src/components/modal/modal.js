@@ -1,5 +1,8 @@
 import './modal.scss';
 
+import { useEffect } from 'react';
+import { useHistory } from 'react-router-dom';
+import { CSSTransition } from 'react-transition-group';
 import cn from 'classnames';
 
 import Button from '../button';
@@ -10,21 +13,41 @@ const icons = {
   cart: CartIcon,
 };
 
-const Modal = ({ icon, title, text, buttonProps, onClick }) => {
+const Modal = ({ visible = false, icon, title, content, buttonProps, onButtonClick, onClose }) => {
   const Icon = icons[icon];
 
+  const history = useHistory();
+
+  const callbacks = {
+    goToMenu: () => {
+      history.push('/');
+      onClose();
+    },
+  };
+
+  const escape = ({ key }) => {
+    if (key === 'Escape') onClose();
+  };
+
+  useEffect(() => {
+    document.addEventListener('keydown', escape);
+    return () => document.removeEventListener('keydown', escape);
+  });
+
   return (
-    <div className="modal">
-      <div className="modal__window">
-        <div className="modal__close" onClick={onClick}>
-          <Plus />
+    <CSSTransition in={visible} unmountOnExit timeout={500} classNames="modal__window">
+      <div className="modal">
+        <div className="modal__window">
+          <div className="modal__close" onClick={onClose}>
+            <Plus />
+          </div>
+          {Icon && <Icon />}
+          <div className="modal__title">{title}</div>
+          <div className={cn('modal__content', { modal__content_hidden: !content })}>{content}</div>
+          <Button onClick={callbacks[onButtonClick]} {...buttonProps} />
         </div>
-        {Icon && <Icon />}
-        <div className="modal__title">{title}</div>
-        <div className={cn('modal__text', { modal__text_hidden: !text })}>{text}</div>
-        <Button {...buttonProps} />
       </div>
-    </div>
+    </CSSTransition>
   );
 };
 
