@@ -15,28 +15,26 @@ const icons = {
 };
 
 const Button = ({
-  type,
   title,
   icon,
-  onClick,
   amount,
   small = false,
   medium = false,
   large = false,
   border = false,
   counter = false,
+  ...props
 }) => {
   const Icon = icons[icon];
 
   return (
     <button
-      type={type}
       className={cn('button', {
         button_small: small,
         button_medium: medium,
         button_large: large,
       })}
-      onClick={onClick}
+      {...props}
     >
       <div
         className={cn('button__title', {

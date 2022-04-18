@@ -10,11 +10,11 @@ const icons = {
   minus: MinusIcon,
 };
 
-const RoundButton = ({ icon, rotate, onClick }) => {
+const RoundButton = ({ icon, rotate, ...props }) => {
   const Icon = icons[icon];
 
   return (
-    <button type="button" className="round-button" onClick={onClick}>
+    <button type="button" className="round-button" {...props}>
       <Icon style={{ transform: `rotate(${rotate}deg)` }} />
     </button>
   );
