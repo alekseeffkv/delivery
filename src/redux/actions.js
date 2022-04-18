@@ -7,6 +7,8 @@ import {
   LOAD_CATEGORIES,
   LOAD_PRODUCTS,
   CREATE_ORDER,
+  EMPTY_CART_MODAL,
+  CLOSE_MODAL,
 } from './constants';
 
 import { orderDataSelector } from './selectors';
@@ -14,6 +16,9 @@ import { orderDataSelector } from './selectors';
 export const increment = ({ id }) => ({ type: INCREMENT, id });
 export const decrement = ({ id }) => ({ type: DECREMENT, id });
 export const remove = ({ id }) => ({ type: REMOVE, id });
+
+export const emptyCartModal = () => ({ type: EMPTY_CART_MODAL });
+export const closeModal = () => ({ type: CLOSE_MODAL });
 
 export const loadCategories = () => ({
   type: LOAD_CATEGORIES,

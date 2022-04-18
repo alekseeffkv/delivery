@@ -18,6 +18,9 @@ export const productsLoadedSelector = (state) => state.products.loaded;
 
 export const orderLoadingSelector = (state) => state.order.loading;
 
+export const openModalSelector = (state) => state.modal.openModal;
+export const modalPropsSelector = (state) => state.modal.modalProps;
+
 export const orderDataSelector = createSelector(orderSelector, (order) =>
   Object.entries(order).map(([id, amount]) => ({ id, amount })),
 );

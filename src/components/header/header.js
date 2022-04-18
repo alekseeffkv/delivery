@@ -9,13 +9,15 @@ import Button from '../button';
 import { ReactComponent as PhoneIcon } from '../../icons/phone.svg';
 
 import { totalAmountSelector } from '../../redux/selectors';
+import { emptyCartModal } from '../../redux/actions';
 
 import contactItems from '../contacts/contact-items';
 
-const Header = ({ totalAmount }) => {
+const Header = ({ totalAmount, emptyCartModal }) => {
   const history = useHistory();
+
   const goToCart = () => {
-    history.push('/cart');
+    totalAmount ? history.push('/cart') : emptyCartModal();
   };
 
   return (
@@ -56,4 +58,8 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Header);
+const mapDispatchToProps = {
+  emptyCartModal,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

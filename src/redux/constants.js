@@ -9,3 +9,6 @@ export const CREATE_ORDER = 'CREATE_ORDER';
 export const REQUEST = '_REQUEST';
 export const SUCCESS = '_SUCCESS';
 export const FAILURE = '_FAILURE';
+
+export const EMPTY_CART_MODAL = 'EMPTY_CART_MODAL';
+export const CLOSE_MODAL = 'CLOSE_MODAL';

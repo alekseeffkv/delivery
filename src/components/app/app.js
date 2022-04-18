@@ -12,6 +12,7 @@ import Contacts from '../contacts';
 import Footer from '../footer';
 import Cart from '../cart';
 import Checkout from '../checkout';
+import Modal from '../modal';
 
 import {
   categoriesListSelector,
@@ -19,8 +20,10 @@ import {
   categoriesLoadedSelector,
   productsLoadingSelector,
   productsLoadedSelector,
+  openModalSelector,
+  modalPropsSelector,
 } from '../../redux/selectors';
-import { loadCategories, loadProducts } from '../../redux/actions';
+import { loadCategories, loadProducts, closeModal } from '../../redux/actions';
 
 const App = ({
   categories,
@@ -30,6 +33,9 @@ const App = ({
   prodLoaded,
   loadCategories,
   loadProducts,
+  openModal,
+  modalProps,
+  closeModal,
 }) => {
   useEffect(() => {
     if (!catLoading && !catLoaded) {
@@ -48,6 +54,7 @@ const App = ({
 
   return (
     <>
+      <Modal visible={openModal} onClose={closeModal} {...modalProps} />
       <Header />
       <Route path="/categories/:catId" component={Banner} />
       <Navbar categories={categories} />
@@ -78,11 +85,14 @@ const mapStateToProps = (state) => ({
   catLoaded: categoriesLoadedSelector(state),
   prodLoading: productsLoadingSelector(state),
   prodLoaded: productsLoadedSelector(state),
+  openModal: openModalSelector(state),
+  modalProps: modalPropsSelector(state),
 });
 
 const mapDispatchToProps = {
   loadCategories,
   loadProducts,
+  closeModal,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
