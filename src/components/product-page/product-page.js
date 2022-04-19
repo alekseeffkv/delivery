@@ -1,18 +1,41 @@
 import './product-page.scss';
 
 import { connect } from 'react-redux';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { numberSpace } from '../../utils';
+import cn from 'classnames';
 
 import Button from '../button';
 import RoundButton from '../round-button';
 
-import { productSelector } from '../../redux/selectors';
+import { productSelector, amountSelector, subtotalSelector } from '../../redux/selectors';
+import { decrement, increment } from '../../redux/actions';
 
-const ProductPage = ({ product }) => {
+const ProductPage = ({ product, amount, subtotal, decrement, increment }) => {
   const { image, name, composition, weight, price, proteins, fats, carbohydrates, calories } =
     product;
+
+  const [buttonsState, setButtonsState] = useState({
+    cartButton: !amount,
+    amountButtons: !!amount,
+  });
+
+  useEffect(() => {
+    amount === 1 &&
+      setButtonsState({
+        cartButton: false,
+        amountButtons: true,
+      });
+  }, [amount]);
+
+  useEffect(() => {
+    !amount &&
+      setButtonsState({
+        cartButton: true,
+        amountButtons: false,
+      });
+  }, [amount]);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -33,6 +56,12 @@ const ProductPage = ({ product }) => {
         </div>
 
         <div className="product-page__body">
+          <div
+            className={cn('product-page__counter', { [`product-page__counter_hidden`]: !amount })}
+          >
+            <div className="product-page__amount">{amount}</div>
+          </div>
+
           <div className="product-page__image">
             <img src={process.env.PUBLIC_URL + '/images/product/' + image} alt="product" />
           </div>
@@ -47,8 +76,22 @@ const ProductPage = ({ product }) => {
               <div className="product-page__weight">Вес: {weight} г</div>
 
               <div className="product-page__buy">
-                <Button type="button" title="Корзина" icon="bag" border />
-                <div className="product-page__price">{numberSpace(price)} ₽</div>
+                {buttonsState.amountButtons && (
+                  <>
+                    <Button type="button" icon="minus" onClick={decrement} small />
+
+                    <div className="card__price">{numberSpace(subtotal)} ₽</div>
+
+                    <Button type="button" icon="plus" onClick={increment} small />
+                  </>
+                )}
+
+                {buttonsState.cartButton && (
+                  <>
+                    <Button type="button" title="В корзину" icon="cart" onClick={increment} />
+                    <div className="product-page__price">{numberSpace(price)} ₽</div>
+                  </>
+                )}
               </div>
 
               <div className="product-page__structure">
@@ -85,6 +128,13 @@ const ProductPage = ({ product }) => {
 
 const mapStateToProps = (state, props) => ({
   product: productSelector(state, props),
+  amount: amountSelector(state, props),
+  subtotal: subtotalSelector(state, props),
 });
 
-export default connect(mapStateToProps)(ProductPage);
+const mapDispatchToProps = (dispatch, props) => ({
+  decrement: () => dispatch(decrement(props)),
+  increment: () => dispatch(increment(props)),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(ProductPage);

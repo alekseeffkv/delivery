@@ -30,9 +30,9 @@
 
   &__inner {
     display: flex;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
-    flex-basis: 50px;
+    flex-basis: 45px;
     height: 36px;
 
     &_hidden {
@@ -41,6 +41,11 @@
 
     &_border {
       border-left: 1px solid v.$white30;
+
+      &.button__inner {
+        justify-content: center;
+        flex-basis: 50px;
+      }
     }
   }
 
@@ -75,6 +80,10 @@
   &_small {
     width: 60px;
     height: 45px;
+
+    .button__inner {
+      justify-content: center;
+    }
 
     svg {
       width: 18px;
