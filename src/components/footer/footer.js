@@ -3,20 +3,10 @@ import './footer.scss';
 
 import { Link } from 'react-router-dom';
 
-import { ReactComponent as ArrowIcon } from '../../icons/arrow.svg';
-
 const Footer = () => {
-  const goToTop = () => {
-    window.scrollTo(0, 0);
-  };
-
   return (
     <footer className="footer">
       <div className="footer__container">
-        <button type="button" onClick={goToTop} className="footer__up">
-          <ArrowIcon />
-        </button>
-
         <div className="footer__docs">
           <Link to="/">
             <span className="footer__logo">DELIVERY</span>
@@ -35,18 +25,20 @@ const Footer = () => {
         </div>
 
         <div className="footer__nav">
-          <Link to="#" className="footer__nav-items">
-            О нас
-          </Link>
-          <Link to="#" className="footer__nav-items">
-            Условия доставки
-          </Link>
-          <Link to="#" className="footer__nav-items">
-            Возврат товара
-          </Link>
-          <Link to="#" className="footer__nav-items">
-            Акции
-          </Link>
+          <div className="footer__nav-inner">
+            <Link to="#" className="footer__nav-items">
+              О нас
+            </Link>
+            <Link to="#" className="footer__nav-items">
+              Условия доставки
+            </Link>
+            <Link to="#" className="footer__nav-items">
+              Возврат товара
+            </Link>
+            <Link to="#" className="footer__nav-items">
+              Акции
+            </Link>
+          </div>
         </div>
       </div>
     </footer>

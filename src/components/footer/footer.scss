@@ -7,33 +7,11 @@
 
   &__container {
     display: flex;
-    justify-content: flex-start;
     align-items: center;
     margin: 0 auto;
+    padding-left: 14px;
     max-width: v.$container-width;
     height: 100%;
-  }
-
-  &__up {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 64px;
-    height: 64px;
-    border-radius: 50%;
-    background-color: v.$white;
-    cursor: pointer;
-    border: none;
-    outline: none;
-
-    svg {
-      width: 22px;
-      height: 13px;
-
-      path {
-        fill: v.$black;
-      }
-    }
   }
 
   &__docs {
@@ -43,7 +21,6 @@
     align-items: flex-start;
     width: 210px;
     height: 140px;
-    margin-left: 55px;
   }
 
   &__logo {
@@ -98,10 +75,16 @@
 
   &__nav {
     display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+  }
+
+  &__nav-inner {
+    display: flex;
     justify-content: space-between;
     align-items: center;
     width: 620px;
-    margin-left: 85px;
   }
 
   &__nav-items {
