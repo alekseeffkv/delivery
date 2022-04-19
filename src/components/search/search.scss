@@ -41,5 +41,18 @@
     border-radius: 0 10px 10px 0;
     border: none;
     cursor: pointer;
+
+    path,
+    circle {
+      stroke: v.$white;
+      transition: 200ms;
+    }
+
+    &:hover {
+      path,
+      circle {
+        stroke: v.$gray;
+      }
+    }
   }
 }

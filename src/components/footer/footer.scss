@@ -79,6 +79,11 @@
       color: v.$white;
       text-decoration-line: underline;
       text-decoration-color: v.$white20;
+      transition: 200ms;
+
+      &:hover {
+        color: v.$gray;
+      }
     }
   }
 
@@ -107,5 +112,10 @@
     line-height: 24px;
     color: v.$white;
     cursor: pointer;
+    transition: 200ms;
+
+    &:hover {
+      color: v.$gray;
+    }
   }
 }

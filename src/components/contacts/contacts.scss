@@ -124,6 +124,11 @@
     font-size: 16px;
     line-height: 20px;
     color: v.$white;
+    transition: 200ms;
+
+    &:hover {
+      color: v.$gray;
+    }
   }
 
   &__reservation {
@@ -147,6 +152,11 @@
     font-size: 23px;
     line-height: 28px;
     color: v.$white;
+    transition: 200ms;
+
+    &:hover {
+      color: v.$gray;
+    }
   }
 
   &__description {

@@ -60,10 +60,14 @@
     transform: rotate(45deg);
     cursor: pointer;
 
+    rect {
+      fill: v.$white;
+      transition: 200ms;
+    }
+
     &:hover {
       rect {
         fill: v.$gray;
-        transition: fill 250ms;
       }
     }
   }

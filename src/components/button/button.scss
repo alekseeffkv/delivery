@@ -11,6 +11,8 @@
   border: none;
   outline: none;
   cursor: pointer;
+  box-shadow: none;
+  transition: 200ms;
 
   &__title {
     font-family: Gilroy;
