@@ -8,10 +8,10 @@ import { numberSpace } from '../../utils';
 
 import Button from '../button';
 
-import { productSelector, amountSelector } from '../../redux/selectors';
+import { productSelector, amountSelector, subtotalSelector } from '../../redux/selectors';
 import { decrement, increment } from '../../redux/actions';
 
-const ProductCard = ({ product, amount, decrement, increment }) => {
+const ProductCard = ({ product, amount, subtotal, decrement, increment }) => {
   const { image, name, weight, description, price } = product;
 
   const [buttonsState, setButtonsState] = useState({
@@ -70,17 +70,27 @@ const ProductCard = ({ product, amount, decrement, increment }) => {
 
         <div className="card__bottom">
           {buttonsState.amountButtons && (
-            <Button type="button" icon="minus" onClick={handleDecrement} small />
-          )}
+            <>
+              <Button type="button" icon="minus" onClick={handleDecrement} small />
 
-          <div className="card__price">{numberSpace(price)} ₽</div>
+              <div className="card__price">{numberSpace(subtotal)} ₽</div>
+
+              <Button type="button" icon="plus" onClick={handleIncrement} small />
+            </>
+          )}
 
           {buttonsState.cartButton && (
-            <Button type="button" title="В корзину" icon="cart" onClick={handleIncrement} medium />
-          )}
+            <>
+              <div className="card__price">{numberSpace(price)} ₽</div>
 
-          {buttonsState.amountButtons && (
-            <Button type="button" icon="plus" onClick={handleIncrement} small />
+              <Button
+                type="button"
+                title="В корзину"
+                icon="cart"
+                onClick={handleIncrement}
+                medium
+              />
+            </>
           )}
         </div>
       </div>
@@ -91,6 +101,7 @@ const ProductCard = ({ product, amount, decrement, increment }) => {
 const mapStateToProps = (state, props) => ({
   product: productSelector(state, props),
   amount: amountSelector(state, props),
+  subtotal: subtotalSelector(state, props),
 });
 
 const mapDispatchToProps = (dispatch, props) => ({

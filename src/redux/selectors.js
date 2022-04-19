@@ -9,6 +9,7 @@ export const categoriesListSelector = createSelector(categoriesSelector, Object.
 export const categorySelector = (state, { id }) => categoriesSelector(state)[id];
 export const productSelector = (state, { id }) => productsSelector(state)[id];
 export const amountSelector = (state, { id }) => orderSelector(state)[id] || 0;
+export const subtotalSelector = (state, { id }) => subtotalListSelector(state)[id] || 0;
 
 export const categoriesLoadingSelector = (state) => state.categories.loading;
 export const categoriesLoadedSelector = (state) => state.categories.loaded;
@@ -40,6 +41,10 @@ export const orderProductsSelector = createSelector(
 
 export const totalSelector = createSelector(orderProductsSelector, (orderProducts) =>
   orderProducts.reduce((acc, { subtotal }) => acc + subtotal, 0),
+);
+
+export const subtotalListSelector = createSelector(orderProductsSelector, (orderProducts) =>
+  orderProducts.reduce((acc, { product, subtotal }) => ({ ...acc, [product.id]: subtotal }), {}),
 );
 
 export const totalAmountSelector = createSelector(orderProductsSelector, (orderProducts) =>
