@@ -30,11 +30,45 @@
     color: v.$white;
     padding-left: 20px;
     margin-top: 25px;
+    margin-bottom: 50px;
     border-left: 4px solid v.$dark-green;
   }
 
-  &__inner {
-    padding: 50px 0;
+  &__empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 50px;
+
+    &-info {
+      font-family: Gilroy;
+      font-style: normal;
+      font-weight: 600;
+      font-size: 25px;
+      line-height: 25px;
+      color: v.$white;
+    }
+
+    &-enter {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+
+    &-enter-active {
+      opacity: 1;
+      transform: translateX(0);
+      transition: 500ms;
+    }
+
+    &-exit {
+      opacity: 1;
+    }
+
+    &-exit-active {
+      opacity: 0;
+      transform: scale(0.9);
+      transition: 500ms;
+    }
   }
 
   &__checkout {
@@ -44,10 +78,31 @@
     max-width: 765px;
     width: 100%;
     flex-basis: 105px;
-    margin: 0 auto;
+    margin: 50px auto 0;
     padding: 0 30px 0 40px;
     background-color: v.$dark-gray;
     border-radius: 10px;
+
+    &-enter {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+
+    &-enter-active {
+      opacity: 1;
+      transform: translateX(0);
+      transition: 500ms;
+    }
+
+    &-exit {
+      opacity: 1;
+    }
+
+    &-exit-active {
+      opacity: 0;
+      transform: scale(0.9);
+      transition: 500ms;
+    }
   }
 
   &__info {
@@ -55,8 +110,7 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: flex-start;
-    min-height: 75px;
-    transition: min-height 500ms;
+    min-height: 55px;
   }
 
   &__total {
@@ -77,44 +131,6 @@
     color: v.$white;
   }
 
-  &__paid {
-    font-family: Gilroy;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 15px;
-    color: v.$gray;
-
-    &-enter,
-    &-appear {
-      opacity: 0;
-    }
-
-    &-enter-active,
-    &-appear-active {
-      opacity: 1;
-      transition: opacity 500ms;
-    }
-
-    &-exit {
-      opacity: 1;
-    }
-
-    &-exit-active {
-      opacity: 0;
-      transition: opacity 500ms;
-    }
-  }
-
-  &__rest {
-    font-family: Gilroy;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 12px;
-    line-height: 15px;
-    color: v.$gray;
-  }
-
   &__min {
     font-family: Gilroy;
     font-style: normal;
@@ -122,9 +138,5 @@
     font-size: 12px;
     line-height: 15px;
     color: v.$gray;
-  }
-
-  &__info_free {
-    min-height: 55px;
   }
 }

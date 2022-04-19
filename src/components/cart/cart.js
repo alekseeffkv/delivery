@@ -1,11 +1,10 @@
 import './cart.scss';
 
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { numberSpace } from '../../utils';
-import cn from 'classnames';
 
 import RoundButton from '../round-button';
 import CartItem from '../cart-item';
@@ -14,12 +13,6 @@ import Button from '../button';
 import { orderProductsSelector, totalSelector } from '../../redux/selectors';
 
 const Cart = ({ orderProducts, total }) => {
-  const [paidDelivery, setPaidDelivery] = useState(true);
-
-  useEffect(() => {
-    total >= 1000 ? setPaidDelivery(false) : setPaidDelivery(true);
-  }, [total]);
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -34,8 +27,6 @@ const Cart = ({ orderProducts, total }) => {
     history.push('/checkout');
   };
 
-  const rest = 1000 - total;
-
   return (
     <div className="cart">
       <div className="cart__nav">
@@ -46,6 +37,13 @@ const Cart = ({ orderProducts, total }) => {
       <div className="cart__title">КОРЗИНА</div>
 
       <div className="cart__inner">
+        <CSSTransition in={!total} unmountOnExit timeout={500} classNames="cart__empty">
+          <div className="cart__empty">
+            <div className="cart__empty-info">Сложите в корзину нужные блюда</div>
+            <Button type="button" title="Посмотреть меню" onClick={goToProducts} large />
+          </div>
+        </CSSTransition>
+
         <TransitionGroup component={null}>
           {orderProducts.map(({ product, amount, subtotal }) => (
             <CSSTransition key={product.id} timeout={500} classNames="cart-item">
@@ -55,24 +53,19 @@ const Cart = ({ orderProducts, total }) => {
         </TransitionGroup>
       </div>
 
-      <div className="cart__checkout">
-        <div className={cn('cart__info', { cart__info_free: !paidDelivery })}>
-          <div className="cart__total">
-            Итого: <span className="cart__cost">{numberSpace(total)} ₽</span>
+      <CSSTransition in={!!total} unmountOnExit timeout={500} classNames="cart__checkout">
+        <div className="cart__checkout">
+          <div className="cart__info">
+            <div className="cart__total">
+              Итого: <span className="cart__cost">{numberSpace(total)} ₽</span>
+            </div>
+
+            <div className="cart__min">Минимальная сумма заказа 1000 ₽</div>
           </div>
 
-          {paidDelivery && (
-            <CSSTransition in appear timeout={500} classNames="cart__paid">
-              <div className="cart__paid">
-                До бесплатной доставки не хватает <span className="cart__rest">{rest} ₽</span>
-              </div>
-            </CSSTransition>
-          )}
-
-          <div className="cart__min">Минимальная сумма заказа 500 ₽</div>
+          <Button type="button" title="Оформить заказ" large onClick={goToCheckout} />
         </div>
-        <Button type="button" title="Оформить заказ" large onClick={goToCheckout} />
-      </div>
+      </CSSTransition>
     </div>
   );
 };
