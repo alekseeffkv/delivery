@@ -13,6 +13,7 @@ import Footer from '../footer';
 import Cart from '../cart';
 import Checkout from '../checkout';
 import Modal from '../modal';
+import UpButton from '../up-button';
 
 import {
   categoriesListSelector,
@@ -54,6 +55,7 @@ const App = ({
 
   return (
     <>
+      <UpButton />
       <Modal visible={openModal} onClose={closeModal} {...modalProps} />
       <Header />
       <Route path="/categories/:catId" component={Banner} />

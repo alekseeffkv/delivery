@@ -1,0 +1,59 @@
+@use '../../scss/variables' as v;
+
+.up-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  left: 14px;
+  bottom: 25px;
+  z-index: 99;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background-color: v.$green;
+  opacity: 0.3;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: 200ms;
+
+  svg {
+    width: 15px;
+    height: 15px;
+
+    path {
+      fill: v.$white;
+    }
+  }
+
+  &:hover {
+    opacity: 1;
+  }
+
+  &:active {
+    background-color: v.$dark-green;
+  }
+
+  &-enter {
+    opacity: 0;
+  }
+
+  &-enter-active {
+    opacity: 0.3;
+    transition: 500ms;
+  }
+
+  &-exit {
+    opacity: 0.3;
+  }
+
+  &-exit-active {
+    opacity: 0;
+    transition: 0ms;
+
+    &.up-button:hover {
+      opacity: 0;
+    }
+  }
+}
