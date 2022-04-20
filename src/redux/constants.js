@@ -12,4 +12,6 @@ export const FAILURE = '_FAILURE';
 
 export const EMPTY_CART_MODAL = 'EMPTY_CART_MODAL';
 export const MIN_SUM_MODAL = 'MIN_SUM_MODAL';
+export const SUCCESS_MODAL = 'SUCCESS_MODAL';
+export const ERROR_MODAL = 'ERROR_MODAL';
 export const CLOSE_MODAL = 'CLOSE_MODAL';

@@ -9,10 +9,14 @@ import Button from '../button';
 import { ReactComponent as Plus } from '../../icons/plus.svg';
 import { ReactComponent as CartIcon } from '../../icons/empty-cart.svg';
 import { ReactComponent as BagIcon } from '../../icons/bag.svg';
+import { ReactComponent as ChefIcon } from '../../icons/chef.svg';
+import { ReactComponent as FlashIcon } from '../../icons/flash.svg';
 
 const icons = {
   cart: CartIcon,
   bag: BagIcon,
+  chef: ChefIcon,
+  flash: FlashIcon,
 };
 
 const Modal = ({ visible = false, icon, title, content, buttonProps, onButtonClick, onClose }) => {
