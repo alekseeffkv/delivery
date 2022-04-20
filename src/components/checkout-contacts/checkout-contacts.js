@@ -12,7 +12,7 @@ const CheckoutContacts = ({ register, errors }) => {
           <div className="checkout__card-field">
             <CheckoutInput
               type="text"
-              placeholder="Имя"
+              placeholder=" Имя"
               register={register('name', { required: 'Обязательное поле' })}
               error={errors.name}
               required
@@ -27,7 +27,7 @@ const CheckoutContacts = ({ register, errors }) => {
           <div className="checkout__card-field">
             <CheckoutInput
               type="tel"
-              placeholder="Телефон"
+              placeholder=" Телефон"
               register={register('phone', { required: 'Обязательное поле' })}
               error={errors.phone}
               required

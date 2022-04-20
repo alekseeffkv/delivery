@@ -33,12 +33,12 @@ const CheckoutPay = ({ register }) => {
             />
           </label>
 
-          <CSSTransition in={activeCash} unmountOnExit timeout={250} classNames="checkout-input">
+          <CSSTransition in={activeCash} unmountOnExit timeout={200} classNames="checkout-input">
             <CheckoutInput
               type="text"
               width="185"
               margin="15"
-              placeholder="Сдача с"
+              placeholder=" Сдача с"
               register={register('change')}
             />
           </CSSTransition>

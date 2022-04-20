@@ -12,7 +12,7 @@ const CheckoutAddress = ({ register, errors }) => {
           <div className="checkout__card-field">
             <CheckoutInput
               type="text"
-              placeholder="Укажите улицу"
+              placeholder=" Укажите улицу"
               register={register('street', { required: 'Обязательное поле' })}
               error={errors.street}
               required
@@ -27,7 +27,7 @@ const CheckoutAddress = ({ register, errors }) => {
           <div className="checkout__card-field" style={{ maxWidth: 237 }}>
             <CheckoutInput
               type="text"
-              placeholder="Номер дома"
+              placeholder=" Номер дома"
               register={register('building', { required: 'Обязательное поле' })}
               error={errors.building}
               required
@@ -41,13 +41,13 @@ const CheckoutAddress = ({ register, errors }) => {
         </div>
 
         <div className="checkout__card-row">
-          <CheckoutInput type="text" placeholder="№ квартиры/офиса" register={register('flat')} />
-          <CheckoutInput type="text" placeholder="Подъезд" register={register('entrance')} />
-          <CheckoutInput type="text" placeholder="Этаж" register={register('floor')} />
+          <CheckoutInput type="text" placeholder=" № квартиры/офиса" register={register('flat')} />
+          <CheckoutInput type="text" placeholder=" Подъезд" register={register('entrance')} />
+          <CheckoutInput type="text" placeholder=" Этаж" register={register('floor')} />
         </div>
 
         <div className="checkout__card-row">
-          <CheckoutInput type="text" placeholder="Комментарий" register={register('comment')} />
+          <CheckoutInput type="text" placeholder=" Комментарий" register={register('comment')} />
         </div>
       </div>
     </div>

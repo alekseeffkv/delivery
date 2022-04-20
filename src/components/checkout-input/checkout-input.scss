@@ -58,15 +58,13 @@
     border-color: v.$error-color;
   }
 
-  &-enter,
-  &-appear {
+  &-enter {
     opacity: 0;
   }
 
-  &-enter-active,
-  &-appear-active {
+  &-enter-active {
     opacity: 1;
-    transition: opacity 500ms;
+    transition: 200ms;
   }
 
   &-exit {
@@ -75,6 +73,6 @@
 
   &-exit-active {
     opacity: 0;
-    transition: opacity 500ms;
+    transition: 200ms;
   }
 }

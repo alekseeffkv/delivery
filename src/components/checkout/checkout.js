@@ -2,8 +2,10 @@
 import './checkout.scss';
 
 import { useHistory } from 'react-router-dom';
+import { useEffect } from 'react';
 import { useForm } from 'react-hook-form';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 import Button from '../button';
 import RoundButton from '../round-button';
@@ -22,6 +24,10 @@ const Checkout = ({ loading, createOrder }) => {
     formState: { errors },
     handleSubmit,
   } = useForm({ mode: 'onBlur' });
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   const history = useHistory();
   const goToCart = () => {
@@ -56,7 +62,8 @@ const Checkout = ({ loading, createOrder }) => {
           <div className="checkout__card-row">
             <label className=" checkout__personal">
               <pre>
-                Я согласен на обработку моих перс. данных в соответствии с <a href="#">Условиями</a>
+                Я согласен на обработку моих перс. данных в соответствии с{' '}
+                <Link to="#">Условиями</Link>
               </pre>
               <input
                 type="checkbox"

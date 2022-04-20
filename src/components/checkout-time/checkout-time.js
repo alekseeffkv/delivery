@@ -39,14 +39,8 @@ const CheckoutTime = ({ register }) => {
             />
           </label>
 
-          <CSSTransition in={activeTime} unmountOnExit timeout={250} classNames="checkout-input">
-            <CheckoutInput
-              type="time"
-              width="185"
-              margin="15"
-              placeholder="Укажите время"
-              register={register('hourMinute')}
-            />
+          <CSSTransition in={activeTime} unmountOnExit timeout={200} classNames="checkout-input">
+            <CheckoutInput type="time" width="185" margin="15" register={register('hourMinute')} />
           </CSSTransition>
         </div>
       </div>
