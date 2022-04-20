@@ -5,6 +5,7 @@ const productsSelector = (state) => state.products.entities;
 const orderSelector = (state) => state.order.entities;
 
 export const categoriesListSelector = createSelector(categoriesSelector, Object.values);
+export const productsListSelector = createSelector(productsSelector, Object.values);
 
 export const categorySelector = (state, { id }) => categoriesSelector(state)[id];
 export const productSelector = (state, { id }) => productsSelector(state)[id];
