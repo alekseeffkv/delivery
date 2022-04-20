@@ -14,6 +14,7 @@ import Cart from '../cart';
 import Checkout from '../checkout';
 import Modal from '../modal';
 import UpButton from '../up-button';
+import NotFound from '../not-found';
 
 import {
   categoriesListSelector,
@@ -58,24 +59,26 @@ const App = ({
       <UpButton />
       <Modal visible={openModal} onClose={closeModal} {...modalProps} />
       <Header />
-      <Route path="/categories/:catId" component={Banner} />
-      <Navbar categories={categories} />
-      <Switch>
-        <Redirect exact from="/" to={`/categories/${categories[0].id}`} />
-        <Redirect exact from="/categories" to={`/categories/${categories[0].id}`} />
-        <Route
-          path="/categories/:catId"
-          component={({ match }) => <Menu id={match.params.catId} />}
-        />
-        <Route
-          path="/products/:prodId"
-          component={({ match }) => <ProductPage id={match.params.prodId} />}
-        />
-        <Route path="/cart" component={Cart} />
-        <Route path="/checkout" component={Checkout} />
-        <Route path="/" component={() => <h2>404 - Page Not Found</h2>} />
-      </Switch>
-      <Route path={['/categories/:catId', '/products/:prodId']} component={Contacts} />
+      <main>
+        <Route path="/categories/:catId" component={Banner} />
+        <Navbar categories={categories} />
+        <Switch>
+          <Redirect exact from="/" to={`/categories/${categories[0].id}`} />
+          <Redirect exact from="/categories" to={`/categories/${categories[0].id}`} />
+          <Route
+            path="/categories/:catId"
+            component={({ match }) => <Menu id={match.params.catId} />}
+          />
+          <Route
+            path="/products/:prodId"
+            component={({ match }) => <ProductPage id={match.params.prodId} />}
+          />
+          <Route path="/cart" component={Cart} />
+          <Route path="/checkout" component={Checkout} />
+          <Route path="/" component={NotFound} />
+        </Switch>
+        <Route path={['/categories/:catId', '/products/:prodId']} component={Contacts} />
+      </main>
       <Footer />
     </>
   );
