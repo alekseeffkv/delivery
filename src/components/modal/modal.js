@@ -8,9 +8,11 @@ import cn from 'classnames';
 import Button from '../button';
 import { ReactComponent as Plus } from '../../icons/plus.svg';
 import { ReactComponent as CartIcon } from '../../icons/empty-cart.svg';
+import { ReactComponent as BagIcon } from '../../icons/bag.svg';
 
 const icons = {
   cart: CartIcon,
+  bag: BagIcon,
 };
 
 const Modal = ({ visible = false, icon, title, content, buttonProps, onButtonClick, onClose }) => {
@@ -42,7 +44,7 @@ const Modal = ({ visible = false, icon, title, content, buttonProps, onButtonCli
             <Plus />
           </div>
           {Icon && <Icon />}
-          <div className="modal__title">{title}</div>
+          <div className={cn('modal__title', { modal__title_hidden: !title })}>{title}</div>
           <div className={cn('modal__content', { modal__content_hidden: !content })}>{content}</div>
           <Button onClick={callbacks[onButtonClick]} {...buttonProps} />
         </div>

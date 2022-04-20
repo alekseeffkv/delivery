@@ -8,6 +8,7 @@ import {
   LOAD_PRODUCTS,
   CREATE_ORDER,
   EMPTY_CART_MODAL,
+  MIN_SUM_MODAL,
   CLOSE_MODAL,
 } from './constants';
 
@@ -18,6 +19,7 @@ export const decrement = ({ id }) => ({ type: DECREMENT, id });
 export const remove = ({ id }) => ({ type: REMOVE, id });
 
 export const emptyCartModal = () => ({ type: EMPTY_CART_MODAL });
+export const minSumModal = () => ({ type: MIN_SUM_MODAL });
 export const closeModal = () => ({ type: CLOSE_MODAL });
 
 export const loadCategories = () => ({

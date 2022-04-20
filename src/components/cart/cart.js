@@ -11,8 +11,9 @@ import CartItem from '../cart-item';
 import Button from '../button';
 
 import { orderProductsSelector, totalSelector } from '../../redux/selectors';
+import { minSumModal } from '../../redux/actions';
 
-const Cart = ({ orderProducts, total }) => {
+const Cart = ({ orderProducts, total, minSumModal }) => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -24,7 +25,7 @@ const Cart = ({ orderProducts, total }) => {
   };
 
   const goToCheckout = () => {
-    history.push('/checkout');
+    total < 1000 ? minSumModal() : history.push('/checkout');
   };
 
   return (
@@ -77,4 +78,8 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Cart);
+const mapDispatchToProps = {
+  minSumModal,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);
