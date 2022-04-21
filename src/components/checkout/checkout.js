@@ -15,10 +15,10 @@ import CheckoutPay from '../checkout-pay';
 import CheckoutTime from '../checkout-time';
 import Loader from '../loader';
 
-import { orderLoadingSelector } from '../../redux/selectors';
+import { totalSelector, orderLoadingSelector } from '../../redux/selectors';
 import { createOrder } from '../../redux/actions';
 
-const Checkout = ({ loading, createOrder }) => {
+const Checkout = ({ total, loading, createOrder }) => {
   const {
     register,
     formState: { errors },
@@ -33,6 +33,8 @@ const Checkout = ({ loading, createOrder }) => {
   const goToCart = () => {
     history.push('/cart');
   };
+
+  if (total < 1000) history.replace('/cart');
 
   return (
     <div className="checkout">
@@ -83,6 +85,7 @@ const Checkout = ({ loading, createOrder }) => {
 
 const mapStateToProps = (state) => {
   return {
+    total: totalSelector(state),
     loading: orderLoadingSelector(state),
   };
 };
