@@ -59,7 +59,7 @@ const Search = ({ products }) => {
       />
 
       <CSSTransition
-        in={filtered.length && focusedInput}
+        in={!!filtered.length && focusedInput}
         unmountOnExit
         timeout={200}
         classNames="search__inner"
