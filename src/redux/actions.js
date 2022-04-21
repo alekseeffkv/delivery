@@ -28,12 +28,12 @@ export const closeModal = () => ({ type: CLOSE_MODAL });
 
 export const loadCategories = () => ({
   type: LOAD_CATEGORIES,
-  CallAPI: '/fixtures/categories.json',
+  CallAPI: '/static/fixtures/categories.json',
 });
 
 export const loadProducts = () => ({
   type: LOAD_PRODUCTS,
-  CallAPI: '/fixtures/products.json',
+  CallAPI: '/static/fixtures/products.json',
 });
 
 export const createOrder = (data) => async (dispatch, getState) => {

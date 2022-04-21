@@ -57,7 +57,7 @@ const ProductCard = ({ product, amount, subtotal, decrement, increment }) => {
       </div>
 
       <div className="card__image">
-        <img src={process.env.PUBLIC_URL + '/images/product/' + image} alt="product" />
+        <img src={process.env.PUBLIC_URL + '/static/images/' + image} alt="product" />
       </div>
 
       <div className="card__body">

@@ -20,7 +20,7 @@ const CartItem = ({ product, amount, subtotal, increment, decrement, remove }) =
     <div className="cart-item">
       <div className="cart-item__left" onClick={goToProduct}>
         <div className="cart-item__image">
-          <img src={process.env.PUBLIC_URL + '/images/product/' + image} alt="product" />
+          <img src={process.env.PUBLIC_URL + '/static/images/' + image} alt="product" />
         </div>
 
         <div className="cart-item__title">
