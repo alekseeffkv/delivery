@@ -1,4 +1,6 @@
-@use '../../scss/variables' as v;
+@use '../../scss/variables' as *;
+
+@use '../../scss/mixins' as *;
 
 .search {
   position: relative;
@@ -15,13 +17,13 @@
     border-radius: 10px;
     border: none;
     outline: none;
-    background-color: v.$dark-gray;
+    background-color: $dark-gray;
     font-family: Gilroy;
     font-style: normal;
     font-weight: 400;
     font-size: 16px;
     line-height: 19px;
-    color: v.$white;
+    color: $white;
 
     &_straight {
       border-radius: 10px 10px 0 0;
@@ -33,7 +35,7 @@
       font-weight: 400;
       font-size: 16px;
       line-height: 19px;
-      color: v.$gray;
+      color: $gray;
     }
   }
 
@@ -45,9 +47,9 @@
     left: 0;
     width: 100%;
     border-radius: 0 0 10px 10px;
-    background-color: v.$dark-gray;
-    border-top: 1px solid v.$white10;
-    box-shadow: 0px 10px 20px v.$white-shadow;
+    background-color: $dark-gray;
+    border-top: 1px solid $white10;
+    box-shadow: 0px 10px 20px $white-shadow;
 
     &-enter {
       opacity: 0;
@@ -76,12 +78,14 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 19px;
-    color: v.$white;
+    color: $white;
     height: 50px;
     padding-left: 20px;
 
-    &:hover {
-      color: v.$gray;
+    @include for-tablet-portrait-up {
+      &:hover {
+        color: $gray;
+      }
     }
   }
 
@@ -92,22 +96,29 @@
     width: 50px;
     height: 50px;
     padding-top: 3px;
-    background-color: v.$dark-gray;
+    background-color: $dark-gray;
     border-radius: 0 10px 10px 0;
     border: none;
     cursor: pointer;
 
     path,
     circle {
-      stroke: v.$white;
+      stroke: $white;
       transition: 200ms;
     }
 
-    &:hover {
-      path,
-      circle {
-        stroke: v.$gray;
+    @include for-tablet-portrait-up {
+      &:hover {
+        path,
+        circle {
+          stroke: $gray;
+        }
       }
     }
+  }
+
+  @include for-phone-only {
+    flex-basis: initial;
+    width: 100%;
   }
 }

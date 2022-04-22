@@ -49,6 +49,10 @@
     url('fonts/gilroy-extrabold.woff') format('woff');
 }
 
+:root {
+  --container-width: 1170px;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -57,6 +61,7 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 body {
@@ -75,4 +80,10 @@ main {
 
 a {
   text-decoration: none;
+}
+
+@media (max-width: 599px) {
+  :root {
+    --container-width: 360px;
+  }
 }

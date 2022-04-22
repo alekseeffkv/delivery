@@ -1,20 +1,38 @@
-@use '../../scss/variables' as v;
+@use '../../scss/variables' as *;
+
+@use '../../scss/mixins' as *;
 
 .header {
   position: sticky;
   top: 0;
   z-index: 3;
-  background-color: v.$bg-color;
+  background-color: $bg-color;
   height: 80px;
-  border-bottom: 1px solid v.$white10;
+  border-bottom: 1px solid $white10;
+
+  @include for-phone-only {
+    height: 140px;
+  }
 
   &__container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 0 auto;
-    max-width: v.$container-width;
+    max-width: var(--container-width);
     height: 100%;
+    position: relative;
+
+    @include for-phone-only {
+      flex-direction: column;
+      padding-bottom: 13px;
+
+      a {
+        display: flex;
+        align-items: center;
+        flex-grow: 1;
+      }
+    }
   }
 
   &__logo {
@@ -24,14 +42,15 @@
     font-size: 25px;
     line-height: 100%;
     letter-spacing: 0.15em;
-    color: v.$white;
+    color: $white;
   }
 
   &__contacts {
-    width: 170px;
+    flex-basis: 170px;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-shrink: 0;
 
     svg {
       width: 32px;
@@ -39,8 +58,12 @@
 
       path,
       circle {
-        fill: v.$green;
+        fill: $green;
       }
+    }
+
+    @include for-phone-only {
+      display: none;
     }
   }
 
@@ -57,7 +80,7 @@
     font-weight: 400;
     font-size: 12px;
     line-height: 167%;
-    color: v.$gray;
+    color: $gray;
   }
 
   &__contacts-number {
@@ -66,11 +89,13 @@
     font-weight: 700;
     font-size: 16px;
     line-height: 125%;
-    color: v.$white;
+    color: $white;
     transition: 200ms;
 
-    &:hover {
-      color: v.$gray;
+    @include for-tablet-portrait-up {
+      &:hover {
+        color: $gray;
+      }
     }
   }
 }

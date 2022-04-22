@@ -1,12 +1,15 @@
-@use '../../scss/variables' as v;
+@use '../../scss/variables' as *;
+
+@use '../../scss/mixins' as *;
 
 .button {
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-shrink: 0;
   width: 150px;
   height: 50px;
-  background-color: v.$green;
+  background-color: $green;
   border-radius: 10px;
   border: none;
   outline: none;
@@ -20,7 +23,7 @@
     font-weight: 600;
     font-size: 14px;
     line-height: 17px;
-    color: v.$white;
+    color: $white;
     flex-grow: 1;
 
     &_hidden {
@@ -32,7 +35,7 @@
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    flex-basis: 45px;
+    width: 45px;
     height: 36px;
 
     &_hidden {
@@ -40,11 +43,11 @@
     }
 
     &_border {
-      border-left: 1px solid v.$white30;
+      border-left: 1px solid $white30;
 
       &.button__inner {
         justify-content: center;
-        flex-basis: 50px;
+        width: 50px;
       }
     }
   }
@@ -61,7 +64,7 @@
     width: 24px;
     height: 24px;
     border-radius: 50%;
-    background-color: v.$white;
+    background-color: $white;
 
     &_hidden {
       display: none;
@@ -74,7 +77,40 @@
     font-weight: 600;
     font-size: 12px;
     line-height: 15px;
-    color: v.$bg-color;
+    color: $bg-color;
+  }
+
+  &_normal {
+    @include for-phone-only {
+      position: absolute;
+      top: 13px;
+      right: 0;
+      width: 62px;
+      height: 50px;
+      flex-direction: column-reverse;
+
+      .button__title {
+        text-transform: lowercase;
+        font-size: 12px;
+        line-height: 15px;
+        flex-grow: 0;
+      }
+
+      .button__inner {
+        width: 46px;
+        height: 26px;
+      }
+
+      .button__inner_border {
+        border-left: none;
+        border-bottom: 1px solid $white30;
+      }
+
+      svg {
+        width: 18px;
+        height: 18px;
+      }
+    }
   }
 
   &_small {
@@ -97,7 +133,7 @@
 
     .button__inner {
       justify-content: flex-start;
-      flex-basis: 36px;
+      width: 36px;
     }
 
     svg {
@@ -111,31 +147,13 @@
     height: 50px;
   }
 
-  &:hover {
-    box-shadow: 0px 5px 10px v.$green-shadow;
-  }
-
   &:active {
-    background-color: v.$dark-green;
+    background-color: $dark-green;
   }
 
-  &-enter,
-  &-appear {
-    opacity: 0;
-  }
-
-  &-enter-active,
-  &-appear-active {
-    opacity: 1;
-    transition: opacity 500ms;
-  }
-
-  &-exit {
-    opacity: 1;
-  }
-
-  &-exit-active {
-    opacity: 0;
-    transition: opacity 500ms;
+  @include for-tablet-portrait-up {
+    &:hover {
+      box-shadow: 0px 5px 10px $green-shadow;
+    }
   }
 }

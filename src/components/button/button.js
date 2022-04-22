@@ -30,6 +30,7 @@ const Button = ({
   return (
     <button
       className={cn('button', {
+        button_normal: !(small || medium || large),
         button_small: small,
         button_medium: medium,
         button_large: large,
