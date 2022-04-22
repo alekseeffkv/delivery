@@ -1,11 +1,13 @@
-@use '../../scss/variables' as v;
+@use '../../scss/variables' as *;
+
+@use '../../scss/mixins' as *;
 
 .contacts {
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  max-width: v.$container-width;
-  height: 610px;
+  max-width: var(--container-width);
+  min-height: 610px;
   margin: 50px auto 0;
   padding-left: 70px;
   background-image: url(./contacts.jpg);
@@ -18,12 +20,17 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    width: 525px;
-    height: 405px;
+    max-width: 525px;
+    min-height: 405px;
     padding: 25px 45px;
-    background-color: v.$black;
+    background-color: $black;
     border-radius: 15px;
     box-shadow: 0px 0px 70px rgba(0, 0, 0, 0.15);
+
+    @include for-phone-only {
+      justify-content: center;
+      padding: 25px;
+    }
   }
 
   &__title {
@@ -33,7 +40,12 @@
     font-weight: 700;
     font-size: 30px;
     line-height: 37px;
-    color: v.$white;
+    color: $white;
+
+    @include for-phone-only {
+      align-self: center;
+      padding-bottom: 20px;
+    }
   }
 
   &__inner {
@@ -43,8 +55,8 @@
     align-items: flex-start;
     height: 170px;
     padding: 20px 0;
-    border-top: 1px solid v.$white10;
-    border-bottom: 1px solid v.$white10;
+    border-top: 1px solid $white10;
+    border-bottom: 1px solid $white10;
 
     svg {
       width: 24px;
@@ -53,7 +65,11 @@
 
     path,
     circle {
-      stroke: v.$dark-green;
+      stroke: $dark-green;
+    }
+
+    @include for-phone-only {
+      height: 185px;
     }
   }
 
@@ -73,6 +89,10 @@
     align-items: flex-start;
     height: 70px;
     padding-left: 10px;
+
+    @include for-phone-only {
+      height: 85px;
+    }
   }
 
   &__address-title {
@@ -81,7 +101,7 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
-    color: v.$gray;
+    color: $gray;
   }
 
   &__address-street {
@@ -90,7 +110,7 @@
     font-weight: 600;
     font-size: 16px;
     line-height: 20px;
-    color: v.$white;
+    color: $white;
   }
 
   &__mail {
@@ -114,7 +134,7 @@
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
-    color: v.$gray;
+    color: $gray;
   }
 
   &__mail-address {
@@ -123,11 +143,13 @@
     font-weight: 600;
     font-size: 16px;
     line-height: 20px;
-    color: v.$white;
+    color: $white;
     transition: 200ms;
 
-    &:hover {
-      color: v.$gray;
+    @include for-tablet-portrait-up {
+      &:hover {
+        color: $gray;
+      }
     }
   }
 
@@ -136,6 +158,11 @@
     justify-content: space-between;
     align-items: center;
     width: 100%;
+
+    @include for-phone-only {
+      flex-direction: column;
+      padding-top: 20px;
+    }
   }
 
   &__phone {
@@ -143,6 +170,10 @@
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+
+    @include for-phone-only {
+      padding-top: 20px;
+    }
   }
 
   &__number {
@@ -151,11 +182,13 @@
     font-weight: 700;
     font-size: 23px;
     line-height: 28px;
-    color: v.$white;
+    color: $white;
     transition: 200ms;
 
-    &:hover {
-      color: v.$gray;
+    @include for-tablet-portrait-up {
+      &:hover {
+        color: $gray;
+      }
     }
   }
 
@@ -165,7 +198,7 @@
     font-weight: 400;
     font-size: 13px;
     line-height: 16px;
-    color: v.$gray;
+    color: $gray;
   }
 
   &__social {
@@ -173,6 +206,10 @@
     justify-content: space-between;
     align-items: center;
     width: 185px;
+
+    @include for-phone-only {
+      padding-top: 20px;
+    }
   }
 
   &__social-title {
@@ -181,7 +218,7 @@
     font-weight: 600;
     font-size: 16px;
     line-height: 20px;
-    color: v.$white;
+    color: $white;
   }
 
   &__social-inner {
@@ -199,5 +236,11 @@
       display: flex;
       align-items: center;
     }
+  }
+
+  @include for-phone-only {
+    min-height: 405px;
+    background-image: none;
+    padding: 0;
   }
 }
