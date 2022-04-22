@@ -3,6 +3,7 @@ import { createSelector } from 'reselect';
 const categoriesSelector = (state) => state.categories.entities;
 const productsSelector = (state) => state.products.entities;
 const orderSelector = (state) => state.order.entities;
+export const navbarSelector = (state) => state.navbar.visibleNavbar;
 
 export const categoriesListSelector = createSelector(categoriesSelector, Object.values);
 export const productsListSelector = createSelector(productsSelector, Object.values);

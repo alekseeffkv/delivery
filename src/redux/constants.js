@@ -15,3 +15,6 @@ export const MIN_SUM_MODAL = 'MIN_SUM_MODAL';
 export const SUCCESS_MODAL = 'SUCCESS_MODAL';
 export const ERROR_MODAL = 'ERROR_MODAL';
 export const CLOSE_MODAL = 'CLOSE_MODAL';
+
+export const SHOW_NAVBAR = 'SHOW_NAVBAR';
+export const HIDE_NAVBAR = 'HIDE_NAVBAR';

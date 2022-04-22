@@ -7,13 +7,14 @@ import { noSpace } from '../../utils';
 import Search from '../search';
 import Button from '../button';
 import { ReactComponent as PhoneIcon } from '../../icons/phone.svg';
+import { ReactComponent as BurgerIcon } from '../../icons/burger.svg';
 
 import { totalAmountSelector } from '../../redux/selectors';
-import { emptyCartModal } from '../../redux/actions';
+import { emptyCartModal, showNavbar } from '../../redux/actions';
 
 import contactItems from '../contacts/contact-items';
 
-const Header = ({ totalAmount, emptyCartModal }) => {
+const Header = ({ totalAmount, emptyCartModal, showNavbar }) => {
   const history = useHistory();
 
   const goToCart = () => {
@@ -23,6 +24,11 @@ const Header = ({ totalAmount, emptyCartModal }) => {
   return (
     <header className="header">
       <div className="header__container">
+        <div className="header__burger" onClick={showNavbar}>
+          <BurgerIcon />
+          <div className="header__burger-title">МЕНЮ</div>
+        </div>
+
         <Link to="/">
           <span className="header__logo">DELIVERY</span>
         </Link>
@@ -61,6 +67,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = {
   emptyCartModal,
+  showNavbar,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(Header);

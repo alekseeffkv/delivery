@@ -12,6 +12,8 @@ import {
   SUCCESS_MODAL,
   ERROR_MODAL,
   CLOSE_MODAL,
+  SHOW_NAVBAR,
+  HIDE_NAVBAR,
 } from './constants';
 
 import { orderDataSelector } from './selectors';
@@ -25,6 +27,9 @@ export const minSumModal = () => ({ type: MIN_SUM_MODAL });
 export const successModal = () => ({ type: SUCCESS_MODAL });
 export const errorModal = () => ({ type: ERROR_MODAL });
 export const closeModal = () => ({ type: CLOSE_MODAL });
+
+export const showNavbar = () => ({ type: SHOW_NAVBAR });
+export const hideNavbar = () => ({ type: HIDE_NAVBAR });
 
 export const loadCategories = () => ({
   type: LOAD_CATEGORIES,
