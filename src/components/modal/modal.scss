@@ -1,4 +1,6 @@
-@use '../../scss/variables' as v;
+@use '../../scss/variables' as *;
+
+@use '../../scss/mixins' as *;
 
 .modal {
   position: fixed;
@@ -10,26 +12,37 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: v.$modal-bg;
+  background-color: $modal-bg;
 
   &__window {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    flex-basis: 460px;
-    min-height: 350px;
-    background-color: v.$dark-gray;
+    width: 460px;
+    height: 350px;
+    background-color: $dark-gray;
     border-radius: 10px;
     padding: 50px;
     position: relative;
+    flex-shrink: 0;
+
+    @include for-phone-only {
+      width: 360px;
+      height: 280px;
+      padding: 30px;
+    }
 
     svg {
       width: auto;
       flex-basis: 90px;
 
+      @include for-phone-only {
+        flex-basis: 80px;
+      }
+
       path {
-        fill: v.$green;
+        fill: $green;
       }
     }
 
@@ -63,13 +76,13 @@
     cursor: pointer;
 
     rect {
-      fill: v.$white;
+      fill: $white;
       transition: 200ms;
     }
 
-    &:hover {
-      rect {
-        fill: v.$gray;
+    @include for-tablet-portrait-up {
+      &:hover {
+        fill: $gray;
       }
     }
   }
@@ -80,7 +93,7 @@
     font-weight: 700;
     font-size: 30px;
     line-height: 37px;
-    color: v.$white;
+    color: $white;
 
     &_hidden {
       display: none;
@@ -93,7 +106,7 @@
     font-weight: 400;
     font-size: 20px;
     line-height: 25px;
-    color: v.$white;
+    color: $white;
     text-align: center;
 
     &_hidden {
