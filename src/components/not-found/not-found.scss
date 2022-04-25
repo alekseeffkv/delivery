@@ -1,4 +1,4 @@
-@use '../../scss/variables' as v;
+@use '../../scss/variables' as *;
 
 .not-found {
   display: flex;
@@ -11,7 +11,7 @@
     font-weight: 700;
     font-size: 32px;
     line-height: 33px;
-    color: v.$white;
+    color: $white;
     padding-top: 50px;
   }
 
@@ -21,7 +21,7 @@
     font-weight: 400;
     font-size: 20px;
     line-height: 30px;
-    color: v.$white;
+    color: $white;
     text-align: center;
     padding: 50px 0;
   }

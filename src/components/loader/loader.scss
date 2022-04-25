@@ -1,4 +1,4 @@
-@use '../../scss/variables' as v;
+@use '../../scss/variables' as *;
 
 .loader {
   width: 40px;
@@ -12,7 +12,7 @@
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background-color: v.$green;
+  background-color: $green;
   opacity: 0.9;
   position: absolute;
   top: 0;

@@ -44,7 +44,7 @@ const Search = ({ products }) => {
 
   const history = useHistory();
   const goToProduct = () => {
-    history.push(`/products/${filtered[0].id}`);
+    filtered[0]?.id && history.push(`/products/${filtered[0].id}`);
   };
 
   return (
