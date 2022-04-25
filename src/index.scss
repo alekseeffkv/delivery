@@ -51,6 +51,7 @@
 
 :root {
   --container-width: 1170px;
+  --product-width: 1074px;
 }
 
 * {
@@ -85,5 +86,6 @@ a {
 @media (max-width: 599px) {
   :root {
     --container-width: 360px;
+    --product-width: 360px;
   }
 }

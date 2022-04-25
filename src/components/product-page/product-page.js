@@ -88,7 +88,13 @@ const ProductPage = ({ product, amount, subtotal, decrement, increment }) => {
 
                 {buttonsState.cartButton && (
                   <>
-                    <Button type="button" title="В корзину" icon="cart" onClick={increment} />
+                    <Button
+                      type="button"
+                      title="В корзину"
+                      icon="cart"
+                      onClick={increment}
+                      medium
+                    />
                     <div className="product-page__price">{numberSpace(price)} ₽</div>
                   </>
                 )}
