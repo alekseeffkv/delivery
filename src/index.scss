@@ -52,6 +52,7 @@
 :root {
   --container-width: 1170px;
   --product-width: 1074px;
+  --checkout-width: 800px;
 }
 
 * {
@@ -87,5 +88,6 @@ a {
   :root {
     --container-width: 360px;
     --product-width: 360px;
+    --checkout-width: 360px;
   }
 }

@@ -1,0 +1,15 @@
+@use '../../scss/mixins' as *;
+
+.checkout-contacts__card-inner {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 1fr;
+  gap: 15px;
+  width: 100%;
+  padding-top: 30px;
+
+  @include for-phone-only {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+  }
+}

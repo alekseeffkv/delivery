@@ -1,9 +1,11 @@
-@use '../../scss/variables' as v;
+@use '../../scss/variables' as *;
+
+@use '../../scss/mixins' as *;
 
 .checkout {
   display: flex;
   flex-direction: column;
-  max-width: v.$checkout-width;
+  max-width: var(--checkout-width);
   margin: 25px auto 0;
 
   &__nav {
@@ -17,7 +19,7 @@
     font-weight: 600;
     font-size: 16px;
     line-height: 20px;
-    color: v.$white;
+    color: $white;
     padding-left: 10px;
   }
 
@@ -27,10 +29,10 @@
     font-weight: 700;
     font-size: 32px;
     line-height: 33px;
-    color: v.$white;
+    color: $white;
     padding-left: 20px;
     margin-top: 25px;
-    border-left: 4px solid v.$dark-green;
+    border-left: 4px solid $dark-green;
   }
 
   &__inner {
@@ -48,7 +50,7 @@
     width: 100%;
     padding: 30px;
     border-radius: 10px;
-    background-color: v.$dark-gray;
+    background-color: $dark-gray;
   }
 
   &__subtitle {
@@ -57,35 +59,23 @@
     font-weight: 700;
     font-size: 18px;
     line-height: 20px;
-    color: v.$white;
+    color: $white;
   }
 
   &__card-inner {
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    padding-top: 30px;
+    display: grid;
+    grid-template-columns: 1fr 210px;
+    grid-template-rows: 1fr;
     row-gap: 15px;
-  }
-
-  &__card-row {
-    display: flex;
     width: 100%;
-    column-gap: 15px;
 
-    &_radio {
-      justify-content: flex-start;
-      column-gap: 0;
-    }
-  }
+    @include for-phone-only {
+      grid-template-columns: 1fr;
+      grid-template-rows: repeat(2, 2fr);
 
-  &__card-field {
-    display: flex;
-    flex-direction: column;
-    flex-grow: 1;
-
-    & > input {
-      flex-grow: 0;
+      & > :nth-child(2) {
+        justify-self: center;
+      }
     }
   }
 
@@ -94,7 +84,6 @@
     justify-content: center;
     align-items: center;
     position: relative;
-    flex-basis: 185px;
     height: 50px;
     cursor: pointer;
 
@@ -104,9 +93,10 @@
       font-weight: 500;
       font-size: 16px;
       line-height: 19px;
-      color: v.$white;
+      color: $white;
       position: relative;
       z-index: 1;
+      text-align: center;
     }
   }
 
@@ -118,19 +108,19 @@
     padding-left: 33px;
     cursor: pointer;
 
-    pre {
+    span {
       font-family: Gilroy;
       font-style: normal;
       font-weight: 500;
       font-size: 13px;
       line-height: 16px;
-      color: v.$white;
+      color: $white;
     }
 
     a {
-      color: v.$green;
+      color: $green;
       text-decoration-line: underline;
-      text-decoration-color: v.$green;
+      text-decoration-color: $green;
     }
   }
 
@@ -150,7 +140,7 @@
     left: 0;
     height: 22px;
     width: 22px;
-    background-color: v.$white;
+    background-color: $white;
     border-radius: 3px;
 
     &:after {
@@ -160,7 +150,7 @@
       top: 2px;
       width: 5px;
       height: 10px;
-      border: solid v.$green;
+      border: solid $green;
       border-width: 0 4px 4px 0;
       transform: rotate(45deg);
       opacity: 0;
@@ -174,7 +164,7 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 19px;
-    color: v.$error-color;
+    color: $error-color;
     padding-left: 20px;
     padding-top: 15px;
   }
@@ -185,7 +175,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: v.$modal-bg;
+    background-color: $modal-bg;
     z-index: 999;
     display: flex;
     align-items: center;

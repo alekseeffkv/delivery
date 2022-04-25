@@ -1,0 +1,14 @@
+@use '../../scss/mixins' as *;
+
+.checkout-time__card-inner {
+  display: grid;
+  grid-template-columns: repeat(2, 185px);
+  grid-template-rows: repeat(2, 1fr);
+  row-gap: 15px;
+  width: 100%;
+  padding-top: 30px;
+
+  @include for-phone-only {
+    grid-template-columns: repeat(2, 150px);
+  }
+}

@@ -8,8 +8,6 @@ const CheckoutInput = ({
   defaultValue,
   defaultChecked,
   placeholder,
-  width,
-  margin,
   register,
   required,
   left,
@@ -31,7 +29,6 @@ const CheckoutInput = ({
         'checkout-input_radio-right': right,
         'checkout-input_error': error,
       })}
-      style={{ maxWidth: `${width}px`, marginLeft: `${margin}px` }}
       {...register}
     />
   );

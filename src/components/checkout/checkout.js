@@ -61,12 +61,12 @@ const Checkout = ({ total, loading, createOrder }) => {
         <CheckoutTime register={register} />
 
         <div className="checkout__card">
-          <div className="checkout__card-row">
+          <div className="checkout__card-inner">
             <label className=" checkout__personal">
-              <pre>
+              <span>
                 Я согласен на обработку моих перс. данных в соответствии с{' '}
                 <Link to="#">Условиями</Link>
-              </pre>
+              </span>
               <input
                 type="checkbox"
                 className="checkout__checkbox"

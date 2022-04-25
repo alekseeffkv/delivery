@@ -1,10 +1,12 @@
-@use '../../scss/variables' as v;
+@use '../../scss/variables' as *;
+
+@use '../../scss/mixins' as *;
 
 .checkout-input {
   flex-grow: 1;
   height: 50px;
   border-radius: 10px;
-  border: 1px solid v.$white10;
+  border: 1px solid $white10;
   background-color: transparent;
   padding-left: 20px;
   outline: none;
@@ -13,7 +15,7 @@
   font-weight: 400;
   font-size: 16px;
   line-height: 19px;
-  color: v.$white;
+  color: $white;
   appearance: none;
 
   &::placeholder {
@@ -22,7 +24,7 @@
     font-weight: 400;
     font-size: 16px;
     line-height: 19px;
-    color: v.$gray;
+    color: $gray;
   }
 
   &[type='time']::-webkit-calendar-picker-indicator {
@@ -30,11 +32,11 @@
   }
 
   &:focus {
-    border-color: v.$green;
+    border-color: $green;
   }
 
   &:checked {
-    background-color: v.$green;
+    background-color: $green;
   }
 
   &_radio {
@@ -42,7 +44,7 @@
     width: 100%;
     padding: 0;
     border-radius: 0;
-    border-color: v.$green;
+    border-color: $green;
     cursor: pointer;
   }
 
@@ -55,7 +57,7 @@
   }
 
   &_error {
-    border-color: v.$error-color;
+    border-color: $error-color;
   }
 
   &-enter {
