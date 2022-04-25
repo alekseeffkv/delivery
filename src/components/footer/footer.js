@@ -1,7 +1,7 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import './footer.scss';
 
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -26,18 +26,18 @@ const Footer = () => {
 
         <div className="footer__nav">
           <div className="footer__nav-inner">
-            <Link to="#" className="footer__nav-items">
+            <NavLink to="#" className="footer__nav-item">
               О нас
-            </Link>
-            <Link to="#" className="footer__nav-items">
+            </NavLink>
+            <NavLink to="#" className="footer__nav-item">
               Условия доставки
-            </Link>
-            <Link to="#" className="footer__nav-items">
+            </NavLink>
+            <NavLink to="#" className="footer__nav-item">
               Возврат товара
-            </Link>
-            <Link to="#" className="footer__nav-items">
+            </NavLink>
+            <NavLink to="#" className="footer__nav-item">
               Акции
-            </Link>
+            </NavLink>
           </div>
         </div>
       </div>
