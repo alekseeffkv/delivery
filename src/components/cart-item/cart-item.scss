@@ -1,4 +1,6 @@
-@use '../../scss/variables' as v;
+@use '../../scss/variables' as *;
+
+@use '../../scss/mixins' as *;
 
 .cart-item {
   display: flex;
@@ -6,8 +8,9 @@
   align-items: center;
   width: 100%;
   height: 125px;
-  background-color: v.$dark-gray;
-  border-bottom: 1px solid v.$white10;
+  background-color: $dark-gray;
+  border-bottom: 1px solid $white10;
+  position: relative;
 
   &__left {
     display: flex;
@@ -16,16 +19,30 @@
     flex-basis: 415px;
     margin-left: 20px;
     cursor: pointer;
+
+    @include for-phone-only {
+      flex-grow: 1;
+      margin: 0;
+    }
   }
 
   &__image {
     flex-basis: 115px;
     max-height: 85px;
+
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       object-position: 50% 50%;
+
+      @include for-phone-only {
+        border-radius: 10px;
+      }
+    }
+
+    @include for-phone-only {
+      flex-basis: 122px;
     }
   }
 
@@ -34,6 +51,11 @@
     flex-direction: column;
     align-items: flex-start;
     flex-basis: 265px;
+
+    @include for-phone-only {
+      align-items: center;
+      flex-basis: 180px;
+    }
   }
 
   &__name {
@@ -42,7 +64,11 @@
     font-weight: 700;
     font-size: 18px;
     line-height: 22px;
-    color: v.$white;
+    color: $white;
+
+    @include for-phone-only {
+      padding-bottom: 25px;
+    }
   }
 
   &__composition {
@@ -51,7 +77,11 @@
     font-weight: 400;
     font-size: 12px;
     line-height: 14px;
-    color: v.$gray;
+    color: $gray;
+
+    @include for-phone-only {
+      display: none;
+    }
   }
 
   &__right {
@@ -60,6 +90,14 @@
     align-items: center;
     flex-basis: 380px;
     margin-right: 45px;
+
+    @include for-phone-only {
+      position: absolute;
+      bottom: 20px;
+      right: 20px;
+      margin: 0;
+      width: 180px;
+    }
   }
 
   &__counter {
@@ -67,6 +105,10 @@
     justify-content: space-between;
     align-items: center;
     flex-basis: 100px;
+
+    @include for-phone-only {
+      flex-basis: 70px;
+    }
   }
 
   &__amount {
@@ -75,7 +117,12 @@
     font-weight: 700;
     font-size: 20px;
     line-height: 26px;
-    color: v.$white;
+    color: $white;
+
+    @include for-phone-only {
+      font-size: 12px;
+      line-height: 15px;
+    }
   }
 
   &__subtotal {
@@ -84,7 +131,12 @@
     font-weight: 700;
     font-size: 20px;
     line-height: 26px;
-    color: v.$white;
+    color: $white;
+
+    @include for-phone-only {
+      font-size: 12px;
+      line-height: 15px;
+    }
   }
 
   &:first-child {
@@ -119,5 +171,10 @@
     opacity: 0;
     transform: scale(0.9);
     transition: 500ms;
+  }
+
+  @include for-phone-only {
+    width: var(--product-width);
+    padding: 20px;
   }
 }
